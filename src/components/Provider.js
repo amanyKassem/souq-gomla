@@ -97,7 +97,7 @@ class Provider extends Component {
                                                     disabled        = {true}
                                                     maxStars        = {5}
                                                     rating          = {provider_info.rates}
-                                                    fullStarColor   = {COLORS.blue}
+                                                    fullStarColor   = {COLORS.light_red}
                                                     starSize        = {13}
                                                     starStyle       = {styles.starStyle}
                                                 />

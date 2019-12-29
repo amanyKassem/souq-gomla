@@ -198,7 +198,7 @@ class Product extends Component {
 							disabled={true}
 							maxStars={5}
 							rating={item.rate}
-							fullStarColor={COLORS.blue}
+							fullStarColor={COLORS.light_red}
 							starSize={15}
 							starStyle={styles.starStyle}
 						/>
@@ -295,12 +295,12 @@ class Product extends Component {
 																				{
 																					this.state.isFav ?
 																						<Icon
-																							style={[styles.text_blue, styles.textSize_20]}
+																							style={[styles.text_light_red, styles.textSize_20]}
 																							type="AntDesign"
 																							name='heart'/>
 																						:
 																						<Icon
-																							style={[styles.text_blue, styles.textSize_20]}
+																							style={[styles.text_light_red, styles.textSize_20]}
 																							type="AntDesign"
 																							name='hearto'/>
 																				}
@@ -372,7 +372,7 @@ class Product extends Component {
 															disabled={true}
 															maxStars={5}
 															rating={this.props.products.rates}
-															fullStarColor={COLORS.blue}
+															fullStarColor={COLORS.light_red}
 															starSize={15}
 															starStyle={styles.starStyle}
 														/>
@@ -430,7 +430,7 @@ class Product extends Component {
 														</Text>
 														<Text style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {
 																borderRightWidth: 2,
-																borderRightColor: COLORS.blue,
+																borderRightColor: COLORS.light_red,
 																paddingRight: 5,
 																marginLeft: 5
 															}]}>
@@ -438,7 +438,7 @@ class Product extends Component {
 
 														<Text style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {
 															borderRightWidth: 2,
-															borderRightColor: COLORS.blue,
+															borderRightColor: COLORS.light_red,
 															paddingRight: 5,
 															marginLeft: 5,
 															textDecorationLine: 'line-through'
@@ -564,7 +564,7 @@ class Product extends Component {
 								<View style={[styles.directionColumn, styles.countText, {height: 45}]}>
 									<Text
 										style={[styles.text_blue, styles.textRegular, styles.textSize_14]}>{this.state.value2}</Text>
-									<Icon style={[styles.text_blue, styles.textSize_14]} type="AntDesign"
+									<Icon style={[styles.text_light_red, styles.textSize_14]} type="AntDesign"
 										name='star'/>
 								</View>
 								<TouchableOpacity onPress={() => this.decrement2()} style={styles.touchMinus}>

@@ -273,6 +273,9 @@ const styles = ({
     bg_light_red : {
         backgroundColor     : COLORS.light_red
     },
+    bg_transRed : {
+        backgroundColor     : COLORS.transRed
+    },
     bg_semon : {
         backgroundColor     : COLORS.semon
     },
@@ -1000,10 +1003,10 @@ const styles = ({
     activeTabs : {
         backgroundColor     : '#fff',
         borderTopWidth      : 1,
-        borderTopColor      : COLORS.blue
+        borderTopColor      : COLORS.light_red
     },
     noActiveTabs : {
-        backgroundColor     : COLORS.light_gray,
+        backgroundColor     : COLORS.light_red,
         borderTopWidth      : 0,
         borderTopColor      : 'transparent'
     },
@@ -1013,7 +1016,7 @@ const styles = ({
     //// amaaaaaaany
 
     starStyle:{
-        color: COLORS.blue,
+        color: COLORS.light_red,
         marginHorizontal:0,
     },
     locationImg:{
@@ -1173,7 +1176,7 @@ const styles = ({
         flex:0,
         resizeMode:"cover",
         borderWidth:1,
-        borderColor:COLORS.blue
+        borderColor:COLORS.light_red
     },
     commentModal:{
         width: '110%',

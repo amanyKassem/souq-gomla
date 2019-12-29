@@ -78,7 +78,7 @@ class DelegateOrderDetails extends Component {
                             <Text style={[styles.text_red, styles.textSize_13, styles.textRegular,styles.textLeft, styles.borderText, styles.paddingHorizontal_5]}>
                                 {item.product_info.total_price} {i18n.t('RS')}
                             </Text>
-                            <Text style={[styles.text_red, styles.textSize_13, styles.textRegular,styles.textLeft,{borderWidth:1 , borderColor:COLORS.blue , textAlign: 'center'}, styles.paddingHorizontal_5]}>
+                            <Text style={[styles.text_red, styles.textSize_13, styles.textRegular,styles.textLeft,{borderWidth:1 , borderColor:COLORS.light_red , textAlign: 'center'}, styles.paddingHorizontal_5]}>
                                 {item.product_info.product_count}
                             </Text>
                         </View>
@@ -273,7 +273,7 @@ class DelegateOrderDetails extends Component {
                                                </View>
                                            </View>
                                            <TouchableOpacity
-                                               style={[styles.width_40, styles.height_40, styles.flexCenter, styles.bg_light_oran, styles.borderLightOran, styles.marginVertical_5, styles.position_A, styles.top_5, styles.right_0]}>
+                                               style={[styles.width_40, styles.height_40, styles.flexCenter, styles.bg_transRed, styles.borderLightOran, styles.marginVertical_5, styles.position_A, styles.top_5, styles.right_0]}>
                                                <Text
                                                    style={[styles.textRegular, styles.text_red]}>{this.props.orderDetails.total_quantity}</Text>
                                            </TouchableOpacity>
@@ -297,7 +297,7 @@ class DelegateOrderDetails extends Component {
                                                    style={styles.restImg}/>
                                                <View style={[styles.directionColumn, {flex: 1}]}>
                                                    <Text
-                                                       style={[styles.textRegular, styles.text_blue, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.user.name}</Text>
+                                                       style={[styles.textRegular, styles.text_light_red, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.user.name}</Text>
                                                    <Text
                                                        style={[styles.textRegular, styles.text_gray, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.user.phone}</Text>
                                                    <View style={[{ flexDirection:'row',
@@ -355,7 +355,7 @@ class DelegateOrderDetails extends Component {
                                                    borderBottomColor: COLORS.lightWhite,
                                                    borderRightColor: COLORS.lightWhite,
                                                    borderLeftWidth: 5,
-                                                   borderLeftColor: COLORS.blue
+                                                   borderLeftColor: COLORS.light_red
                                                }]}>
                                            <View style={[styles.directionColumn, {flex: 1}]}>
                                                <Text
@@ -377,7 +377,7 @@ class DelegateOrderDetails extends Component {
                                                    borderBottomColor: COLORS.lightWhite,
                                                    borderRightColor: COLORS.lightWhite,
                                                    borderLeftWidth: 5,
-                                                   borderLeftColor: COLORS.blue,
+                                                   borderLeftColor: COLORS.light_red,
                                                    marginBottom:15
                                                }]}>
                                            <View style={[styles.directionColumn, {flex: 1}]}>

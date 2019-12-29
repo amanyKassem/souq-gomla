@@ -298,7 +298,7 @@ class OrderDetails extends Component {
 																					<Text
 																						style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {
 																							borderRightWidth: 2,
-																							borderRightColor: COLORS.blue,
+																							borderRightColor: COLORS.light_red,
 																							paddingRight: 5,
 																							marginLeft: 5
 																						}]}>{product.product_info.total_price} {i18n.t('RS')}</Text>
@@ -370,13 +370,13 @@ class OrderDetails extends Component {
 														borderBottomColor: COLORS.lightWhite,
 														borderRightColor: COLORS.lightWhite,
 														borderLeftWidth: 5,
-														borderLeftColor: COLORS.blue
+														borderLeftColor: COLORS.light_red
 													}]}>
 												<View style={[styles.directionColumn, {flex: 1}]}>
 													<Text
 														style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{i18n.t('orderStatus')}</Text>
 													<Text
-														style={[styles.textRegular, styles.text_blue, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.status_text}</Text>
+														style={[styles.textRegular, styles.text_light_red, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.status_text}</Text>
 												</View>
 											</View>
 										</View>

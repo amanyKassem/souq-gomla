@@ -138,7 +138,7 @@ class FilterCategory extends Component {
                         </View>
                         <View style={[styles.flex_70]}>
                             <View style={[styles.rowGroup]}>
-                                <Text style={[styles.textRegular, styles.text_red]}>
+                                <Text style={[styles.textRegular, styles.text_blue]}>
                                     {item.name}
                                 </Text>
                                 <StarRating
@@ -321,7 +321,7 @@ class FilterCategory extends Component {
 
                                     <Animatable.View animation="fadeInRight" easing="ease-out" delay={500}>
                                         <View
-                                            style={[styles.bg_overlay, styles.overHidden, styles.paddingVertical_10, styles.Width_70, styles.heightFull, styles.paddingVertical_20]}>
+                                            style={[styles.overlay_transBlue, styles.overHidden, styles.paddingVertical_10, styles.Width_70, styles.heightFull, styles.paddingVertical_20]}>
                                             <View style={[styles.overHidden, styles.heightFull, styles.bgFullWidth]}>
 
                                                 <View
