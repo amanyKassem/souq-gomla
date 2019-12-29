@@ -91,7 +91,7 @@ class MyOrders extends Component {
 					style={{marginBottom: 7, alignSelf: 'center'}}
 					width={width - 20}
 					height={100}
-					colorShimmer={['#ffffff75', '#FEDAD075', '#ffffff75']}
+					colorShimmer={['#ffffff75', COLORS.light_blue, '#ffffff75']}
 				/>
 			)
 		}
@@ -141,37 +141,37 @@ class MyOrders extends Component {
 							style={[styles.rowGroup, styles.paddingHorizontal_15, styles.marginVertical_15, styles.overlay_white, styles.Border]}>
 							<TouchableOpacity onPress={() => this.getOrders(newOrderStatus)} style={[{
 								borderTopWidth: 3,
-								borderTopColor: this.state.activeType === newOrderStatus ? COLORS.orange : 'transparent'
+								borderTopColor: this.state.activeType === newOrderStatus ? COLORS.blue : 'transparent'
 							}, styles.paddingVertical_10]}>
 								<Text
-									style={[styles.textRegular, this.state.activeType === newOrderStatus ? styles.text_orange : styles.text_black, styles.textSize_16]}>
+									style={[styles.textRegular, this.state.activeType === newOrderStatus ? styles.text_blue : styles.text_black, styles.textSize_16]}>
 									{i18n.t('underProssess')}
 								</Text>
 							</TouchableOpacity>
 							<TouchableOpacity onPress={() => this.getOrders(2)} style={[{
 								borderTopWidth: 3,
-								borderTopColor: this.state.activeType === 2 ? COLORS.orange : 'transparent'
+								borderTopColor: this.state.activeType === 2 ? COLORS.blue : 'transparent'
 							}, styles.paddingVertical_10]}>
 								<Text
-									style={[styles.textRegular, this.state.activeType === 2 ? styles.text_orange : styles.text_black, styles.textSize_16]}>
+									style={[styles.textRegular, this.state.activeType === 2 ? styles.text_blue : styles.text_black, styles.textSize_16]}>
 									{i18n.t('accepted')}
 								</Text>
 							</TouchableOpacity>
 							<TouchableOpacity onPress={() => this.getOrders(3)} style={[{
 								borderTopWidth: 3,
-								borderTopColor: this.state.activeType === 3 ? COLORS.orange : 'transparent'
+								borderTopColor: this.state.activeType === 3 ? COLORS.blue : 'transparent'
 							}, styles.paddingVertical_10]}>
 								<Text
-									style={[styles.textRegular, this.state.activeType === 3 ? styles.text_orange : styles.text_black, styles.textSize_16]}>
+									style={[styles.textRegular, this.state.activeType === 3 ? styles.text_blue : styles.text_black, styles.textSize_16]}>
 									{i18n.t('done')}
 								</Text>
 							</TouchableOpacity>
 							<TouchableOpacity onPress={() => this.getOrders(4)} style={[{
 								borderTopWidth: 3,
-								borderTopColor: this.state.activeType === 4 ? COLORS.orange : 'transparent'
+								borderTopColor: this.state.activeType === 4 ? COLORS.blue : 'transparent'
 							}, styles.paddingVertical_10]}>
 								<Text
-									style={[styles.textRegular, this.state.activeType === 4 ? styles.text_orange : styles.text_black, styles.textSize_16]}>
+									style={[styles.textRegular, this.state.activeType === 4 ? styles.text_blue : styles.text_black, styles.textSize_16]}>
 									{i18n.t('canceled')}
 								</Text>
 							</TouchableOpacity>
@@ -190,12 +190,9 @@ class MyOrders extends Component {
 											const myOrders = this.props.user.type === 'provider' ? order.order_user : order.order_provider
 											return (
 												<TouchableOpacity key={i}
-													onPress={() => this.props.navigation.navigate(this.props.user.type === 'delegate' ? 'delegateOrderDetails' : 'orderDetails', {
-														orderType: this.state.activeType,
-														order_id: order.order_info.order_id
-													})}
+													onPress={() => this.props.navigation.navigate(this.props.user.type === 'delegate' ? 'delegateOrderDetails' : 'orderDetails', { order_id: order.order_info.order_id })}
 													style={[styles.position_R, styles.flexCenter, styles.Width_90, {marginTop: 20}]}>
-													<View style={[styles.lightOverlay, styles.Border]}></View>
+													<View style={[styles.lightOverlay, styles.Border]} />
 													<View
 														style={[styles.rowGroup, styles.bg_White, styles.Border, styles.paddingVertical_10, styles.paddingHorizontal_10]}>
 														<View style={[styles.icImg, styles.flex_30]}>

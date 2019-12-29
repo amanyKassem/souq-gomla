@@ -52,17 +52,18 @@ class Notifications extends Component {
     _keyExtractor = (item, index) => item.id;
 
     renderItems = (item , index) => {
+        console.log(item);
         return(
-            <TouchableOpacity style={[styles.position_R, styles.Width_95, {marginTop:15}, styles.marginHorizontal_10, styles.SelfCenter]}>
-                <View style={[styles.lightOverlay, styles.Border]}></View>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate(this.props.user.type === 'delegate' ? 'delegateOrderDetails' : 'orderDetails', { order_id: item.item.order_id })} style={[styles.position_R, styles.Width_95, {marginTop:15}, styles.marginHorizontal_10, styles.SelfCenter]}>
+                <View style={[styles.lightOverlay, styles.Border]} />
                 <View style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White,styles.bgFullWidth,styles.paddingHorizontal_7 , styles.paddingVertical_7
                 , { borderWidth: 1, borderTopColor : COLORS.lightWhite ,borderBottomColor : COLORS.lightWhite ,borderRightColor : COLORS.lightWhite , borderLeftWidth:5 ,
-                        borderLeftColor: item.index % 2 === 0 ? COLORS.orange : COLORS.black}]}>
+                        borderLeftColor: item.index % 2 === 0 ? COLORS.blue : COLORS.black}]}>
                     <View style={[styles.directionColumn , {flex:1}]}>
                         <View style={[styles.directionRowSpace ]}>
                             <Text style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft , {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{item.item.title}</Text>
                             <TouchableOpacity
-                                style           = {[{width:22 , height:22}, styles.flexCenter, styles.bg_red, styles.borderLightOran, styles.Radius_60]}
+                                style           = {[{width:22 , height:22}, styles.flexCenter, styles.bg_blue, styles.borderLightOran, styles.Radius_60]}
                                 onPress         = {() => this.deleteNotify(item.item.id)}
                             >
                                 <Icon style     = {[styles.text_White, styles.textSize_12]} type="AntDesign" name='close' />
@@ -122,7 +123,7 @@ class Notifications extends Component {
                     style={{marginVertical:7, alignSelf: 'center'}}
                     width={width - 20}
                     height={100}
-                    colorShimmer={['#ffffff75', '#FEDAD075', '#ffffff75']}
+                    colorShimmer={['#ffffff75', COLORS.light_blue, '#ffffff75']}
                 />
             )
         }

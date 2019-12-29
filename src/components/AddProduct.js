@@ -5,7 +5,7 @@ import styles from '../../assets/style'
 import i18n from '../../locale/i18n'
 import * as Animatable from 'react-native-animatable';
 import {connect} from "react-redux";
-import {profile , addProduct, subCate} from '../actions';
+import {profile , addProduct, subCate , updateProduct} from '../actions';
 import {NavigationEvents} from "react-navigation";
 import Spinner from "react-native-loading-spinner-overlay";
 
@@ -391,4 +391,4 @@ const mapStateToProps = ({ lang, profile, subCate }) => {
         subCategory         : subCate.subCate
     };
 };
-export default connect(mapStateToProps, {addProduct , profile, subCate})(AddProduct);
+export default connect(mapStateToProps, {addProduct , profile, subCate , updateProduct})(AddProduct);

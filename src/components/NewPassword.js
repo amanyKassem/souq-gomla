@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {View, Text, Image, TouchableOpacity, ImageBackground,} from "react-native";
+import {View, Text, Image, TouchableOpacity, ImageBackground, KeyboardAvoidingView,} from "react-native";
 import {Container, Content, Form, Item, Input, Toast, Icon} from 'native-base'
 import styles from '../../assets/style'
 import i18n from '../../locale/i18n'
@@ -118,7 +118,8 @@ class NewPassword extends Component {
                                     <Image style={[styles.icoImage]} source={require('../../assets/images/logo.png')}/>
                                 </View>
                             </Animatable.View>
-                            <Form style={[styles.Width_100, styles.flexCenter, styles.marginVertical_10, styles.Width_90]}>
+                            <KeyboardAvoidingView behavior={'padding'} style={styles.keyboardAvoid}>
+                                <Form style={[styles.Width_100, styles.flexCenter, styles.marginVertical_10, styles.Width_90]}>
 
                                 <View style={[styles.position_R, styles.overHidden, styles.height_70, styles.flexCenter ]}>
                                     <Item floatingLabel style={[ styles.item, styles.position_R, styles.overHidden ]}>
@@ -132,7 +133,7 @@ class NewPassword extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_White, styles.flexCenter, styles.iconInput,  (this.state.codeStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='scan1' />
+                                        <Icon style = {[styles.text_blue, styles.textSize_22]} type="AntDesign" name='scan1' />
                                     </View>
                                 </View>
 
@@ -148,7 +149,7 @@ class NewPassword extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_White, styles.flexCenter, styles.iconInput,  (this.state.passwordStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='lock1' />
+                                        <Icon style = {[styles.text_blue, styles.textSize_22]} type="AntDesign" name='lock1' />
                                     </View>
                                 </View>
 
@@ -164,13 +165,13 @@ class NewPassword extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_White, styles.flexCenter, styles.iconInput,  (this.state.rePasswordStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='lock1' />
+                                        <Icon style = {[styles.text_blue, styles.textSize_22]} type="AntDesign" name='lock1' />
                                     </View>
                                 </View>
 
                                 <TouchableOpacity
                                     style={[
-                                        styles.bg_red,
+                                        styles.bg_blue,
                                         styles.width_150,
                                         styles.flexCenter,
                                         styles.marginVertical_15,
@@ -183,6 +184,7 @@ class NewPassword extends Component {
                                 </TouchableOpacity>
 
                             </Form>
+                            </KeyboardAvoidingView>
                         </View>
                     </ImageBackground>
                 </Content>

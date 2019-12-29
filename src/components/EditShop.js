@@ -188,7 +188,7 @@ class EditShop extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput,  (this.state.nameStoreStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='user' />
+                                        <Icon style = {[styles.text_blue, styles.textSize_22]} type="AntDesign" name='user' />
                                     </View>
                                 </View>
 
@@ -202,7 +202,7 @@ class EditShop extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 ]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="Feather" name='map-pin' />
+                                        <Icon style = {[styles.text_blue, styles.textSize_22]} type="Feather" name='map-pin' />
                                     </View>
                                 </TouchableOpacity>
 
@@ -220,7 +220,7 @@ class EditShop extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput,  (this.state.infoStoreStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="FontAwesome5" name='pencil-alt' />
+                                        <Icon style = {[styles.text_blue, styles.textSize_22]} type="FontAwesome5" name='pencil-alt' />
                                     </View>
                                 </View>
 

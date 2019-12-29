@@ -50,13 +50,11 @@ class OrderDetails extends Component {
 		this.props.getCancelOrder(this.props.lang, this.props.navigation.state.params.order_id , this.state.reason , this.props.user.token , this.props )
 	}
 
-
-
 	renderAcceptOrder(){
 		if (this.state.isSubmitted){
 			return(
 				<View style={[{ justifyContent: 'center', alignItems: 'center' , marginBottom:20 , alignSelf:'center' }]}>
-					<DoubleBounce size={20} color={COLORS.orange} style={{ alignSelf: 'center' }} />
+					<DoubleBounce size={20} color={COLORS.blue} style={{ alignSelf: 'center' }} />
 				</View>
 			)
 		}
@@ -99,7 +97,7 @@ class OrderDetails extends Component {
 		if (this.state.isSubmitted){
 			return(
 				<View style={[{ justifyContent: 'center', alignItems: 'center' , marginBottom:20 }]}>
-					<DoubleBounce size={20} color={COLORS.orange} style={{ alignSelf: 'center' }} />
+					<DoubleBounce size={20} color={COLORS.blue} style={{ alignSelf: 'center' }} />
 				</View>
 			)
 		}
@@ -123,7 +121,7 @@ class OrderDetails extends Component {
 		if (this.state.isSubmitted){
 			return(
 				<View style={[{ justifyContent: 'center', alignItems: 'center' , marginBottom:20 }]}>
-					<DoubleBounce size={20} color={COLORS.orange} style={{ alignSelf: 'center' }} />
+					<DoubleBounce size={20} color={COLORS.blue} style={{ alignSelf: 'center' }} />
 				</View>
 			)
 		}
@@ -186,7 +184,7 @@ class OrderDetails extends Component {
 					style={{marginVertical:7, alignSelf: 'center'}}
 					width={width - 20}
 					height={100}
-					colorShimmer={['#ffffff75', '#FEDAD075', '#ffffff75']}
+					colorShimmer={['#ffffff75', COLORS.light_blue, '#ffffff75']}
 				/>
 			)
 		}
@@ -203,15 +201,11 @@ class OrderDetails extends Component {
 		if(this.props.user.type === 'provider' ){
 			return(
 
-				this.props.navigation.state.params.orderType === 0  ?
-
-
+				this.props.orderDetails.order_status === 0  ?
 					this.renderAcceptOrder()
-
-
 					:
 
-					this.props.navigation.state.params.orderType === 1  || this.props.navigation.state.params.orderType === 2  ?
+					this.props.orderDetails.order_status === 1  || this.props.orderDetails.order_status === 2  ?
 
 						this.renderFinishOrder()
 
@@ -221,7 +215,7 @@ class OrderDetails extends Component {
 		}
 
 		return(
-			this.props.navigation.state.params.orderType === 0 || this.props.navigation.state.params.orderType === 1 ?
+			this.props.orderDetails.order_status === 0 || this.props.orderDetails.order_status === 1 ?
 				<TouchableOpacity onPress={() => this.toggleModal()}
 					style={[styles.cartBtn, styles.SelfCenter, {marginBottom: 20}]}>
 					<Text
@@ -236,9 +230,7 @@ class OrderDetails extends Component {
 		this.componentWillMount();
 	}
 
-
 	render() {
-
 		this.loadingAnimated = [];
 
 		return (
@@ -284,14 +276,13 @@ class OrderDetails extends Component {
 												{
 													this.props.orderDetails.products.map((product, i) => {
 														return (
-															<View style={[styles.viewBlock]}>
+															<View key={i} style={[styles.viewBlock]}>
 																<Image style={[styles.Width_95, styles.swiper]}
 																	source={{uri: product.product_info.image}}
 																	resizeMode={'cover'}/>
 																<View
 																	style={[styles.Width_95, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter]}>
-																	<View
-																		style={[styles.lightOverlay, styles.Border]}></View>
+																	<View style={[styles.lightOverlay, styles.Border]} />
 																	<View
 																		style={[styles.Width_100, styles.overHidden, styles.bg_White, styles.Border, styles.bgFullWidth, styles.paddingHorizontal_7, styles.paddingVertical_7]}>
 																		<View style={[styles.overHidden]}>
@@ -307,10 +298,10 @@ class OrderDetails extends Component {
 																					<Text
 																						style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {
 																							borderRightWidth: 2,
-																							borderRightColor: COLORS.orange,
+																							borderRightColor: COLORS.blue,
 																							paddingRight: 5,
 																							marginLeft: 5
-																						}]}>{product.product_info.product_price} {i18n.t('RS')}</Text>
+																						}]}>{product.product_info.total_price} {i18n.t('RS')}</Text>
 																				</View>
 																			</View>
 																			<Text
@@ -339,14 +330,9 @@ class OrderDetails extends Component {
 											</Swiper>
 										</View>
 
-										<View
-											style={[styles.Width_95, {
-												marginTop: 5,
-												marginBottom: 15
-											}, styles.marginHorizontal_10, styles.SelfCenter]}>
-											<View style={[styles.lightOverlay, styles.Border]}></View>
-											<View
-												style={[styles.Width_100, styles.overHidden, styles.bg_White, styles.Border, styles.bgFullWidth, styles.paddingHorizontal_7, styles.paddingVertical_7]}>
+										<View style={[styles.Width_95, { marginTop: 5, marginBottom: 15 }, styles.marginHorizontal_10, styles.SelfCenter]}>
+											<View style={[styles.lightOverlay, styles.Border]} />
+											<View style={[styles.Width_100, styles.overHidden, styles.bg_White, styles.Border, styles.bgFullWidth, styles.paddingHorizontal_7, styles.paddingVertical_7]}>
 												<View
 													style={[styles.directionRowSpace, styles.Border, styles.paddingHorizontal_10, styles.paddingVertical_10, {marginTop: 15}]}>
 													<Text
@@ -373,41 +359,33 @@ class OrderDetails extends Component {
 												</View>
 											</View>
 										</View>
-
-										{
-											this.props.navigation.state.params.orderType === 0 || this.props.navigation.state.params.orderType === 1 ||
-											this.props.navigation.state.params.orderType === 2 || this.props.navigation.state.params.orderType === 3 || this.props.navigation.state.params.orderType === 4 ?
-												<View
-													style={[styles.position_R, styles.Width_95, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter]}>
-													<View style={[styles.lightOverlay, styles.Border]}></View>
-													<View
-														style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White, styles.bgFullWidth, styles.paddingHorizontal_7, styles.paddingVertical_7
-															, {
-																borderWidth: 1,
-																borderTopColor: COLORS.lightWhite,
-																borderBottomColor: COLORS.lightWhite,
-																borderRightColor: COLORS.lightWhite,
-																borderLeftWidth: 5,
-																borderLeftColor: COLORS.orange
-															}]}>
-														<View style={[styles.directionColumn, {flex: 1}]}>
-															<Text
-																style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{i18n.t('orderStatus')}</Text>
-															<Text
-																style={[styles.textRegular, styles.text_orange, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.status_text}</Text>
-														</View>
-													</View>
+										<View
+											style={[styles.position_R, styles.Width_95, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter]}>
+											<View style={[styles.lightOverlay, styles.Border]}></View>
+											<View
+												style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White, styles.bgFullWidth, styles.paddingHorizontal_7, styles.paddingVertical_7
+													, {
+														borderWidth: 1,
+														borderTopColor: COLORS.lightWhite,
+														borderBottomColor: COLORS.lightWhite,
+														borderRightColor: COLORS.lightWhite,
+														borderLeftWidth: 5,
+														borderLeftColor: COLORS.blue
+													}]}>
+												<View style={[styles.directionColumn, {flex: 1}]}>
+													<Text
+														style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{i18n.t('orderStatus')}</Text>
+													<Text
+														style={[styles.textRegular, styles.text_blue, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.status_text}</Text>
 												</View>
-												:
-												<View/>
-										}
+											</View>
+										</View>
 
 
 										{
 											this.props.orderDetails.order_status == 2  ?
-												<View
-													style={[styles.position_R, styles.Width_95, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter]}>
-													<View style={[styles.lightOverlay, styles.Border]}></View>
+												<View style={[styles.position_R, styles.Width_95, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter]}>
+													<View style={[styles.lightOverlay, styles.Border]} />
 													<View
 														style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White, styles.bgFullWidth, styles.paddingHorizontal_7, styles.paddingVertical_7]}>
 														<Text
@@ -424,7 +402,7 @@ class OrderDetails extends Component {
 																<Text
 																	style={[styles.textRegular, styles.text_bold_gray, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.provider.name}</Text>
 																<Text
-																	style={[styles.textRegular, styles.text_orange, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.provider.phone}</Text>
+																	style={[styles.textRegular, styles.text_blue, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{this.props.orderDetails.provider.phone}</Text>
 																<Text
 																	style={[styles.textRegular, styles.text_bold_gray, styles.textSize_14, styles.textLeft, {writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr'}]}>{i18n.t('deliveredPlace')} :
 																	{this.props.orderDetails.provider.address}</Text>
@@ -443,7 +421,7 @@ class OrderDetails extends Component {
 
 										{
 											this.props.user.type === 'provider' ? <View/> :
-												this.props.navigation.state.params.orderType === 1 || this.props.navigation.state.params.orderType === 2 ?
+												this.props.orderDetails.order_status === 1 || this.props.orderDetails.order_status === 2 ?
 													<View>
 														<TouchableOpacity
 															// onPress={() => this.props.navigation.navigate('drawerNavigator')}
@@ -457,7 +435,7 @@ class OrderDetails extends Component {
 										}
 
 										{
-											this.props.navigation.state.params.orderType === 3 || this.props.navigation.state.params.orderType === 4 ?
+											this.props.orderDetails.order_status === 3 || this.props.orderDetails.order_status === 4 ?
 												<View>
 
 													{

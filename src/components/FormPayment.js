@@ -46,7 +46,7 @@ class FormPayment extends Component {
         if (this.state.isSubmitted){
             return(
                 <View style={[{ justifyContent: 'center', alignItems: 'center' } , styles.marginVertical_15]}>
-                    <DoubleBounce size={20} color={COLORS.orange} style={{ alignSelf: 'center' }} />
+                    <DoubleBounce size={20} color={COLORS.blue} style={{ alignSelf: 'center' }} />
                 </View>
             )
         }
@@ -54,7 +54,7 @@ class FormPayment extends Component {
         return (
             <TouchableOpacity
                 onPress={() => this.storeOrder()}
-                style={[styles.bg_red,
+                style={[styles.bg_blue,
                     styles.width_150,
                     styles.flexCenter,
                     styles.marginVertical_15,
@@ -190,7 +190,7 @@ class FormPayment extends Component {
                                     </Item>
                                     <View
                                         style={[styles.position_A, styles.bg_light_oran, styles.flexCenter, styles.iconInput, (this.state.usernameStatus === 1 ? styles.left_0 : styles.leftHidLeft)]}>
-                                        <Icon style={[styles.text_orange, styles.textSize_22]} type="AntDesign"
+                                        <Icon style={[styles.text_blue, styles.textSize_22]} type="AntDesign"
                                               name='user'/>
                                     </View>
                                 </View>
@@ -209,7 +209,7 @@ class FormPayment extends Component {
                                     </Item>
                                     <View
                                         style={[styles.position_A, styles.bg_light_oran, styles.flexCenter, styles.iconInput, (this.state.accNumStatus === 1 ? styles.left_0 : styles.leftHidLeft)]}>
-                                        <Icon style={[styles.text_orange, styles.textSize_22]} type="MaterialCommunityIcons"
+                                        <Icon style={[styles.text_blue, styles.textSize_22]} type="MaterialCommunityIcons"
                                               name='account-details'/>
                                     </View>
                                 </View>
@@ -227,7 +227,7 @@ class FormPayment extends Component {
                                     </Item>
                                     <View
                                         style={[styles.position_A, styles.bg_light_oran, styles.flexCenter, styles.iconInput, (this.state.finishDateStatus === 1 ? styles.left_0 : styles.leftHidLeft)]}>
-                                        <Icon style={[styles.text_orange, styles.textSize_22]} type="MaterialIcons"
+                                        <Icon style={[styles.text_blue, styles.textSize_22]} type="MaterialIcons"
                                               name='date-range'/>
                                     </View>
                                 </View>
@@ -246,7 +246,7 @@ class FormPayment extends Component {
                                     </Item>
                                     <View
                                         style={[styles.position_A, styles.bg_light_oran, styles.flexCenter, styles.iconInput, (this.state.confirmCodeStatus === 1 ? styles.left_0 : styles.leftHidLeft)]}>
-                                        <Icon style={[styles.text_orange, styles.textSize_22]} type="MaterialIcons"
+                                        <Icon style={[styles.text_blue, styles.textSize_22]} type="MaterialIcons"
                                               name='confirmation-number'/>
                                     </View>
                                 </View>

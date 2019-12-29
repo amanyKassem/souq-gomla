@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {getCartList} from '../actions'
 import {NavigationEvents} from "react-navigation";
 import * as Animatable from 'react-native-animatable';
+import COLORS from '../../src/consts/colors';
 import i18n from "../../locale/i18n";
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder'
 import ReactotronConfig from '../../ReactotronConfig'
@@ -80,7 +81,7 @@ class Basket extends Component {
                     style={{marginBottom: 7, alignSelf: 'center'}}
                     width={width - 20}
                     height={100}
-                    colorShimmer={['#ffffff75', '#FEDAD075', '#ffffff75']}
+                    colorShimmer={['#ffffff75', COLORS.light_blue, '#ffffff75']}
                 />
             )
         }
@@ -145,7 +146,7 @@ class Basket extends Component {
 														<View style={[styles.flex_70]}>
 															<View style={[styles.rowGroup]}>
 																<Text
-																	style={[styles.textRegular, styles.text_orange]}>{cart.name}</Text>
+																	style={[styles.textRegular, styles.text_blue]}>{cart.name}</Text>
 															</View>
 															<View style={[styles.overHidden]}>
 																<Text

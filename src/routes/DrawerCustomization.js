@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {View, Text, Image, TouchableOpacity} from "react-native";
+import {View, Text, Image, TouchableOpacity, I18nManager} from "react-native";
 import {Button, Container, Content, Icon} from 'native-base';
 import { DrawerItems } from 'react-navigation-drawer';
 
@@ -7,7 +7,7 @@ import styles from "../../assets/style";
 import COLORS from '../../src/consts/colors'
 import i18n from "../../locale/i18n";
 import {connect} from "react-redux";
-import {logout, tempAuth} from "../actions";
+import {logout, tempAuth, chooseLang} from "../actions";
 import * as Animatable from "react-native-animatable";
 
 class DrawerCustomization extends Component {
@@ -20,6 +20,11 @@ class DrawerCustomization extends Component {
 
     filterItems(item){
         return item.routeName !== 'MyOrders' && item.routeName !== 'Profile' && item.routeName !== 'Favorite' && item.routeName !== 'Offers';
+    }
+
+    changeLang(){
+        const lang = I18nManager.isRTL ? 'en' : 'ar';
+        this.props.chooseLang(lang);
     }
 
     logout(){
@@ -88,6 +93,10 @@ class DrawerCustomization extends Component {
                                      itemStyle                      = {[styles.drawerItemStyle]}
                                      itemsContainerStyle            = {styles.marginVertical_10}
                         />
+                        <TouchableOpacity onPress={() => this.changeLang()} style={{ flexDirection: 'row', top: -10, marginLeft: 30 }}>
+                            <Icon  name='translate' type='MaterialIcons' style={{ color: '#768186' }} />
+                            <Text style={[styles.textRegular, styles.textSize_16, { marginLeft: 15 }]}>{ I18nManager.isRTL ? 'English' : 'العربية' }</Text>
+                        </TouchableOpacity>
                     </View>
 
                 </Content>
@@ -95,13 +104,13 @@ class DrawerCustomization extends Component {
                 {
                     (this.props.auth == null || this.props.user == null) ?
 
-                    <TouchableOpacity style={[styles.clickLogin, styles.bg_red, styles.position_A, styles.width_150]} onPress={() => this.props.navigation.navigate('Login')}>
+                    <TouchableOpacity style={[styles.clickLogin, styles.bg_blue, styles.position_A, styles.width_150]} onPress={() => this.props.navigation.navigate('Login')}>
                         <Text style={[styles.textRegular, styles.textSize_16, styles.text_White,styles.paddingVertical_5, styles.textCenter]}>{i18n.translate('login')}</Text>
                     </TouchableOpacity>
 
                     :
 
-                    <TouchableOpacity style={[styles.clickLogin, styles.bg_red,styles.position_A, styles.width_150]} onPress={() => this.logout()}>
+                    <TouchableOpacity style={[styles.clickLogin, styles.bg_blue ,styles.position_A, styles.width_150]} onPress={() => this.logout()}>
                         <Text style={[styles.textRegular, styles.textSize_16, styles.text_White,styles.paddingVertical_5, styles.textCenter]}>{i18n.translate('logout')}</Text>
                     </TouchableOpacity>
 
@@ -119,4 +128,4 @@ const mapStateToProps = ({ auth, profile }) => {
     };
 };
 
-export default connect(mapStateToProps, { logout, tempAuth })(DrawerCustomization);
+export default connect(mapStateToProps, { logout, tempAuth, chooseLang })(DrawerCustomization);

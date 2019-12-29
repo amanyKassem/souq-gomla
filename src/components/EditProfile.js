@@ -57,7 +57,7 @@ class EditProfile extends Component {
         if (this.state.isSubmitted){
             return(
                 <View style={[{ justifyContent: 'center', alignItems: 'center' , marginBottom:20 }]}>
-                    <DoubleBounce size={20} color={COLORS.orange} style={{ alignSelf: 'center' }} />
+                    <DoubleBounce size={20} color={COLORS.blue} style={{ alignSelf: 'center' }} />
                 </View>
             )
         }
@@ -189,13 +189,10 @@ class EditProfile extends Component {
                 </Header>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
                     <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
-
-
-
                         { image != null ?
 
                             <View style={[styles.position_R, styles.Width_90, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter,{right:20}]}>
-                                <View style={[styles.blackOverlay, styles.Border , {top:10 , left:10}]}/>
+                                <View style={[styles.blueOverlay, styles.Border , {top:10 , left:10}]}/>
                                 <View style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White,styles.bgFullWidth]}>
                                     <Image style={[styles.Width_100, styles.swiper]} source={{ uri: image }} resizeMode={'cover'}/>
                                     <View style={[styles.blackOverlay, {top:0 , left:0}]}/>
@@ -211,7 +208,7 @@ class EditProfile extends Component {
 
                             :
                             <View style={[styles.position_R, styles.Width_90, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter,{right:20}]}>
-                                <View style={[styles.blackOverlay, styles.Border , {top:10 , left:10}]}/>
+                                <View style={[styles.blueOverlay, styles.Border , {top:10 , left:10}]}/>
                                 <View style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White,styles.bgFullWidth]}>
                                     <Image style={[styles.Width_100, styles.swiper]} source={{ uri: image }} resizeMode={'cover'}/>
                                     <View style={[styles.blackOverlay, {top:0 , left:0}]}/>
@@ -241,7 +238,7 @@ class EditProfile extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput,  (this.state.usernameStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='user' />
+                                        <Icon style = {[styles.text_light_red, styles.textSize_22]} type="AntDesign" name='user' />
                                     </View>
                                 </View>
 
@@ -257,7 +254,7 @@ class EditProfile extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput,  (this.state.phoneStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="MaterialCommunityIcons" name='cellphone' />
+                                        <Icon style = {[styles.text_light_red, styles.textSize_22]} type="MaterialCommunityIcons" name='cellphone' />
                                     </View>
                                 </View>
 
@@ -288,7 +285,7 @@ class EditProfile extends Component {
                                             </Item>
                                             <Icon style={styles.iconPicker} type="AntDesign" name='down' />
                                             <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 , {top:-1, left:-1}]}>
-                                                <Icon style = {[styles.text_orange, styles.textSize_22]} type="FontAwesome5" name='pencil-alt' />
+                                                <Icon style = {[styles.text_light_red, styles.textSize_22]} type="FontAwesome5" name='pencil-alt' />
                                             </View>
                                         </View>
 
@@ -320,7 +317,7 @@ class EditProfile extends Component {
                                     </Item>
                                     <Icon style={styles.iconPicker} type="AntDesign" name='down' />
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 , {top:-1, left:-1}]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="MaterialCommunityIcons" name='flag' />
+                                        <Icon style = {[styles.text_light_red, styles.textSize_22]} type="MaterialCommunityIcons" name='flag' />
                                     </View>
                                 </View>
 
@@ -344,7 +341,7 @@ class EditProfile extends Component {
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 ]}>
-                                        <Icon style = {[styles.text_orange, styles.textSize_22]} type="Feather" name='map-pin' />
+                                        <Icon style = {[styles.text_light_red, styles.textSize_22]} type="Feather" name='map-pin' />
                                     </View>
                                 </TouchableOpacity>
                             </Form>

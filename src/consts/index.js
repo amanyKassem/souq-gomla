@@ -1,3 +1,3 @@
 export default {
-    url: 'https://produf.aait-sa.com/public/api/',
+    url: 'https://sooqgo.aait-sa.com/backend/api/',
 };

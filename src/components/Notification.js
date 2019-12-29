@@ -37,6 +37,14 @@ class Notification extends Component {
         }
     }
 
+	goNavigation(order_id){
+        if (this.props.user.type == 'delegate'){
+            this.props.navigation.navigate('delegateOrderDetails', { order_id })
+        } else {
+
+        }
+    }
+
     onFocus(){
         this.componentWillMount();
     }
@@ -64,8 +72,8 @@ class Notification extends Component {
                     { this.renderLoader() }
                     <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
-                        <TouchableOpacity style={[styles.position_R, styles.flexCenter, styles.Width_90, styles.marginVertical_25, ]}>
-                            <View style={[styles.lightOverlay, styles.Border]}></View>
+                        <TouchableOpacity onPress={() => this.goNavigation()} style={[styles.position_R, styles.flexCenter, styles.Width_90, styles.marginVertical_25, ]}>
+                            <View style={[styles.lightOverlay, styles.Border]} />
                             <View style={[styles.Width_100, styles.bg_White, styles.Border, styles.paddingVertical_10, styles.paddingHorizontal_10]}>
                                 <View style={[styles.position_R]}>
                                     <View style={[styles.rowGroup]}>
@@ -76,7 +84,7 @@ class Notification extends Component {
                                         <Text style={[styles.textRegular , styles.text_red, styles.textSize_14]}>12/12/2019</Text>
                                     </View>
                                     <TouchableOpacity
-                                        style           = {[styles.width_30 , styles.height_30 , styles.flexCenter, styles.bg_red, styles.borderLightOran, styles.position_A, styles.fixItem, styles.Radius_60]}
+                                        style           = {[styles.width_30 , styles.height_30 , styles.flexCenter, styles.bg_blue, styles.borderLightOran, styles.position_A, styles.fixItem, styles.Radius_60]}
                                         onPress         = {() => this.delate()}
                                     >
                                         <Icon style     = {[styles.text_White, styles.textSize_16]} type="AntDesign" name='close' />
@@ -93,9 +101,10 @@ class Notification extends Component {
     }
 }
 
-const mapStateToProps = ({ lang }) => {
+const mapStateToProps = ({ lang, profile }) => {
     return {
         lang        : lang.lang,
+        user        : profile.user
     };
 };
 export default connect(mapStateToProps, { })(Notification);

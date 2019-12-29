@@ -20,6 +20,9 @@ const styles = ({
     text_blue : {
         color               : COLORS.blue
     },
+    text_light_red : {
+        color               : COLORS.light_red
+    },
     text_gray : {
         color               : COLORS.gray
     },
@@ -29,11 +32,8 @@ const styles = ({
     text_toby : {
         color               : COLORS.toby
     },
-    text_orange : {
-        color               : COLORS.orange
-    },
-    text_light_oran : {
-        color               : COLORS.light_oran
+    text_light_blue : {
+        color               : COLORS.light_blue
     },
     text_black : {
         color               : COLORS.black
@@ -111,7 +111,7 @@ const styles = ({
         textAlign           : "center"
     },
     textRight : {
-        textAlign           : "right"
+        textAlign           : "left"
     },
     textLeft : {
         textAlign           : "left"
@@ -250,13 +250,10 @@ const styles = ({
         backgroundColor     : COLORS.toby
     },
     bg_light_oran : {
-        backgroundColor     : COLORS.light_oran
+        backgroundColor     : COLORS.light_blue
     },
     bg_orange : {
-        backgroundColor     : COLORS.orange
-    },
-    bg_red : {
-        backgroundColor     : COLORS.red
+        backgroundColor     : COLORS.blue
     },
     bg_turquoise : {
         backgroundColor      : COLORS.turquoise
@@ -273,6 +270,12 @@ const styles = ({
     bg_lightWhite : {
         backgroundColor     : COLORS.lightWhite
     },
+    bg_light_red : {
+        backgroundColor     : COLORS.light_red
+    },
+    bg_semon : {
+        backgroundColor     : COLORS.semon
+    },
     bg_black : {
         backgroundColor     : COLORS.black
     },
@@ -284,6 +287,9 @@ const styles = ({
     },
     overlay_black : {
         backgroundColor     : "rgba(0, 0, 0, 0.5)"
+    },
+    overlay_red : {
+        backgroundColor     : COLORS.transRed
     },
     bg_White : {
         backgroundColor     : '#FFF'
@@ -300,11 +306,11 @@ const styles = ({
     },
     borderLightOran : {
         borderWidth           : 1,
-        borderColor           : COLORS.light_oran
+        borderColor           : COLORS.light_blue
     },
     borderRed : {
         borderWidth           : 1,
-        borderColor           : COLORS.orange
+        borderColor           : COLORS.blue
     },
     borderGray : {
         borderWidth           : 1,
@@ -600,7 +606,7 @@ const styles = ({
     },
     Active : {
         borderWidth           : 1,
-        borderColor           : COLORS.orange,
+        borderColor           : COLORS.light_red,
         paddingRight          : 60,
         paddingLeft           : 60,
     },
@@ -865,6 +871,14 @@ const styles = ({
         width                   : '100%',
         height                  : '100%'
     },
+    blueOverlay  : {
+        backgroundColor         : COLORS.blue,
+        position                : 'absolute',
+        top                     : -10,
+        left                    : -10,
+        width                   : '100%',
+        height                  : '100%'
+    },
     lightOverlay  : {
         backgroundColor         : "rgba(255,255,255,0.5)",
         position                : 'absolute',
@@ -983,7 +997,7 @@ const styles = ({
     activeTabs : {
         backgroundColor     : '#fff',
         borderTopWidth      : 1,
-        borderTopColor      : COLORS.orange
+        borderTopColor      : COLORS.blue
     },
     noActiveTabs : {
         backgroundColor     : COLORS.light_gray,
@@ -996,7 +1010,7 @@ const styles = ({
     //// amaaaaaaany
 
     starStyle:{
-        color: COLORS.orange,
+        color: COLORS.blue,
         marginHorizontal:0,
     },
     locationImg:{
@@ -1042,7 +1056,7 @@ const styles = ({
         paddingVertical : 7
     },
     bgBtn : {
-        backgroundColor:COLORS.light_oran,
+        backgroundColor:COLORS.light_blue,
         borderRadius:0,
         width:40,
         height:40,
@@ -1070,7 +1084,7 @@ const styles = ({
         alignSelf:'center'
     },
     touchPlus:{
-        backgroundColor:COLORS.light_oran ,
+        backgroundColor:COLORS.light_blue ,
         height:20,
         width:20,
         justifyContent:'center',
@@ -1085,7 +1099,7 @@ const styles = ({
     },
     plus:{
         fontSize:15 ,
-        color:COLORS.orange
+        color:COLORS.blue
     },
     minus:{
         fontSize:15 ,
@@ -1095,13 +1109,13 @@ const styles = ({
         width:20,
         height:35,
         borderWidth:1,
-        borderColor:COLORS.orange,
+        borderColor:COLORS.blue,
         marginVertical:5,
         justifyContent:'center',
         alignItems:'center'
     },
     cartBtn:{
-        backgroundColor:COLORS.orange,
+        backgroundColor:COLORS.blue,
         width:'45%',
         paddingHorizontal: 15,
         paddingVertical: 7,
@@ -1156,7 +1170,7 @@ const styles = ({
         flex:0,
         resizeMode:"cover",
         borderWidth:1,
-        borderColor:COLORS.orange
+        borderColor:COLORS.blue
     },
     commentModal:{
         width: '110%',

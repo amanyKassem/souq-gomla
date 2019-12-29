@@ -103,7 +103,7 @@ class ContactUs extends Component {
                     <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                         <TouchableOpacity style={[styles.borderRed, styles.marginVertical_15, styles.Width_80, styles.SelfCenter, styles.height_50, styles.paddingHorizontal_25]}>
                             <View style={[styles.bg_light_oran, styles.iconImg, styles.iconContact, styles.flexCenter]}>
-                                <Icon style={[styles.text_orange, styles.textSize_22]} type="Feather" name='user' />
+                                <Icon style={[styles.text_blue, styles.textSize_22]} type="Feather" name='user' />
                             </View>
                             <Text style={[styles.textRegular , styles.text_black, styles.SelfLeft, styles.marginHorizontal_25, styles.centerContext]}>
                                 { this.props.name }
@@ -111,7 +111,7 @@ class ContactUs extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.borderRed, styles.marginVertical_15, styles.Width_80, styles.SelfCenter, styles.height_50, styles.paddingHorizontal_25]} onPress={() => Linking.openURL(this.props.phone)}>
                             <View style={[styles.bg_light_oran, styles.iconImg, styles.iconContact, styles.flexCenter]}>
-                                <Icon style={[styles.text_orange, styles.textSize_22]} type="SimpleLineIcons" name='screen-smartphone' />
+                                <Icon style={[styles.text_blue, styles.textSize_22]} type="SimpleLineIcons" name='screen-smartphone' />
                             </View>
                             <Text style={[styles.textRegular , styles.text_black, styles.SelfLeft, styles.marginHorizontal_25, styles.centerContext]}>
                                 { this.props.phone }
@@ -119,7 +119,7 @@ class ContactUs extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={[styles.borderRed, styles.marginVertical_15, styles.Width_80, styles.SelfCenter, styles.height_50, styles.paddingHorizontal_25]}>
                             <View style={[styles.bg_light_oran, styles.iconImg, styles.iconContact, styles.flexCenter]}>
-                                <Icon style={[styles.text_orange, styles.textSize_22]} type="Feather" name='map-pin' />
+                                <Icon style={[styles.text_blue, styles.textSize_22]} type="Feather" name='map-pin' />
                             </View>
                             <Text style={[styles.textRegular , styles.text_black, styles.SelfLeft, styles.marginHorizontal_25, styles.centerContext]}>
                                 { this.props.address }
@@ -178,7 +178,7 @@ class ContactUs extends Component {
                                                     </Item>
                                                 </Form>
                                             </View>
-                                            <TouchableOpacity style={[styles.overHidden, styles.paddingVertical_5 , styles.bg_red, styles.Width_50, styles.flexCenter, styles.Radius_5]} onPress={() => this.onSent()}>
+                                            <TouchableOpacity style={[styles.overHidden, styles.paddingVertical_5 , styles.bg_blue, styles.Width_50, styles.flexCenter, styles.Radius_5]} onPress={() => this.onSent()}>
                                                 <Text style={[styles.textRegular, styles.textSize_18, styles.text_White, styles.textCenter]}>
                                                     { i18n.t('sent') }
                                                 </Text>

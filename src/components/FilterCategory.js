@@ -25,6 +25,7 @@ import Modal from "react-native-modal";
 import * as Animatable from 'react-native-animatable';
 import {categoryProviders, searchProviders, filterProviders, getCities} from '../actions';
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder'
+import COLORS from '../consts/colors'
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -212,7 +213,7 @@ class FilterCategory extends Component {
                     style={{marginVertical: 7, alignSelf: 'center'}}
                     width={width - 20}
                     height={100}
-                    colorShimmer={['#ffffff75', '#FEDAD075', '#ffffff75']}
+                    colorShimmer={['#ffffff75', COLORS.light_blue, '#ffffff75']}
                 />
             )
         }
@@ -466,7 +467,7 @@ class FilterCategory extends Component {
                                                 </View>
 
                                                 <TouchableOpacity
-                                                    style={[styles.overHidden, styles.bg_red, styles.width_120, styles.flexCenter, styles.Radius_5, styles.height_40, styles.marginVertical_25]}
+                                                    style={[styles.overHidden, styles.bg_blue, styles.width_120, styles.flexCenter, styles.Radius_5, styles.height_40, styles.marginVertical_25]}
                                                     onPress={() => this.onFilter()}>
                                                     <Text
                                                         style={[styles.textRegular, styles.textSize_18, styles.text_White, styles.textCenter]}>

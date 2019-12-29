@@ -73,7 +73,7 @@ class Confirmation extends Component {
 
                             <TouchableOpacity
                                 style={[
-                                    styles.bg_red,
+                                    styles.bg_blue,
                                     styles.width_150,
                                     styles.flexCenter,
                                     styles.marginVertical_15,

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "souq gomla",
-    "slug": "souqGomla",
+    "slug": "souqgomla",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -25,7 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "app.aait.souqGomla",
+      "bundleIdentifier": "app.aait.souqgomla",
       "infoPlist": {
         "NSCameraUsageDescription": "App need this permission to update profile photo.",
         "NSPhotoLibraryAddUsageDescription": "App need this permission to update profile photo.",
@@ -34,11 +34,11 @@
       }
     },
     "android": {
-      "package": "app.aait.souqGomla",
+      "package": "app.aait.souqgomla",
       "versionCode": 1,
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyBripzhDn5xRMGI_ohKAsIcbd1-UuKS6uY"
+          "apiKey": "AIzaSyBQu-aDY--uY14s4U3ok-XwwqhsnhLFe5Q"
         }
       }
     }

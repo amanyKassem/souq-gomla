@@ -47,8 +47,8 @@ class Profile extends Component {
     renderSubmit(){
         if (this.state.password == '' || this.state.newPassword == '' || this.state.confirmNewPassword == '') {
             return (
-                <View style={[styles.Width_100,]}>
-                    <TouchableOpacity style={[styles.cartBtn , styles.SelfCenter , {margin:20}]}>
+                <View style={[styles.Width_100,{marginBottom:20}]}>
+                    <TouchableOpacity style={[styles.cartBtn , styles.SelfCenter , {backgroundColor:'#999'}]}>
                         <Text style={[styles.textRegular, styles.text_White,styles.textSize_14, styles.textLeft]}>{ i18n.t('confirm') }</Text>
                     </TouchableOpacity>
                 </View>
@@ -57,13 +57,13 @@ class Profile extends Component {
         if (this.state.isSubmitted) {
             return (
                 <View style={[{justifyContent: 'center', alignItems: 'center' , margin:20}]}>
-                    <DoubleBounce size={20} color={COLORS.orange} style={{alignSelf: 'center'}}/>
+                    <DoubleBounce size={20} color={COLORS.blue} style={{alignSelf: 'center'}}/>
                 </View>
             )
         }
         return (
-            <View style={[styles.Width_100,]}>
-                <TouchableOpacity onPress={() => this.changePass()} style={[styles.cartBtn , styles.SelfCenter , {margin:20}]}>
+            <View style={[styles.Width_100,{marginBottom:20}]}>
+                <TouchableOpacity onPress={() => this.changePass()} style={[styles.cartBtn , styles.SelfCenter ]}>
                     <Text style={[styles.textRegular, styles.text_White,styles.textSize_14, styles.textLeft]}>{i18n.t('confirm')}</Text>
                 </TouchableOpacity>
             </View>
@@ -169,7 +169,7 @@ class Profile extends Component {
                     <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
                         <View style={[styles.position_R, styles.Width_90, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter,{right:20}]}>
-                            <View style={[styles.blackOverlay, styles.Border , {top:10 , left:10}]}/>
+                            <View style={[styles.blueOverlay, styles.Border , {top:10 , left:10}]}/>
                             <View style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White,styles.bgFullWidth]}>
                                 <Image style={[styles.Width_100, styles.swiper]} source={{uri: this.props.user.avatar}} resizeMode={'cover'}/>
                             </View>
@@ -187,7 +187,7 @@ class Profile extends Component {
                                     />
                                 </Item>
                                 <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 ]}>
-                                    <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='user' />
+                                    <Icon style = {[styles.text_light_red, styles.textSize_22]} type="AntDesign" name='user' />
                                 </View>
                             </View>
                             <View style={[styles.position_R, styles.overHidden, styles.height_70, styles.flexCenter ]}>
@@ -200,7 +200,7 @@ class Profile extends Component {
                                     />
                                 </Item>
                                 <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput,styles.left_0 ]}>
-                                    <Icon style = {[styles.text_orange, styles.textSize_22]} type="MaterialCommunityIcons" name='cellphone' />
+                                    <Icon style = {[styles.text_light_red, styles.textSize_22]} type="MaterialCommunityIcons" name='cellphone' />
                                 </View>
                             </View>
                             <View style={[styles.position_R, styles.overHidden, styles.height_70, styles.flexCenter ]}>
@@ -213,7 +213,7 @@ class Profile extends Component {
                                     />
                                 </Item>
                                 <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 ]}>
-                                    <Icon style = {[styles.text_orange, styles.textSize_22]} type="MaterialCommunityIcons" name='flag' />
+                                    <Icon style = {[styles.text_light_red, styles.textSize_22]} type="MaterialCommunityIcons" name='flag' />
                                 </View>
                             </View>
 
@@ -227,7 +227,7 @@ class Profile extends Component {
                                     />
                                 </Item>
                                 <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 ]}>
-                                    <Icon style = {[styles.text_orange, styles.textSize_22]} type="Feather" name='map-pin' />
+                                    <Icon style = {[styles.text_light_red, styles.textSize_22]} type="Feather" name='map-pin' />
                                 </View>
                             </View>
 
@@ -243,7 +243,7 @@ class Profile extends Component {
                                             />
                                         </Item>
                                         <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput, styles.left_0 ]}>
-                                            <Icon style = {[styles.text_orange, styles.textSize_22]} type="FontAwesome5" name='pencil-alt' />
+                                            <Icon style = {[styles.text_light_red, styles.textSize_22]} type="FontAwesome5" name='pencil-alt' />
                                         </View>
                                     </View>
                                     :
@@ -264,7 +264,7 @@ class Profile extends Component {
                         }
 
                         <TouchableOpacity onPress={() => this.toggleModal()} style={[styles.SelfCenter, styles.marginVertical_10]} >
-                            <Text style={[styles.textRegular , styles.text_orange, styles.textSize_16, styles.paddingHorizontal_15, styles.textDecoration]}>
+                            <Text style={[styles.textRegular , styles.text_light_red, styles.textSize_16, styles.paddingHorizontal_15, styles.textDecoration]}>
                                 {i18n.translate('changepass')}
                             </Text>
                         </TouchableOpacity>
@@ -331,7 +331,7 @@ class Profile extends Component {
                                 />
                             </Item>
                             <View style = {[ styles.position_A , styles.bg_White, styles.flexCenter, styles.iconInput , {top:8},  (this.state.passwordStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='lock1' />
+                                <Icon style = {[styles.text_light_red, styles.textSize_22]} type="AntDesign" name='lock1' />
                             </View>
                         </View>
 
@@ -348,7 +348,7 @@ class Profile extends Component {
                                 />
                             </Item>
                             <View style = {[ styles.position_A , styles.bg_White, styles.flexCenter, styles.iconInput , {top:8},  (this.state.newPasswordStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='lock1' />
+                                <Icon style = {[styles.text_light_red, styles.textSize_22]} type="AntDesign" name='lock1' />
                             </View>
                         </View>
 
@@ -365,7 +365,7 @@ class Profile extends Component {
                                 />
                             </Item>
                             <View style = {[ styles.position_A , styles.bg_White, styles.flexCenter, styles.iconInput , {top:8},  (this.state.confirmNewPasswordStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>
-                                <Icon style = {[styles.text_orange, styles.textSize_22]} type="AntDesign" name='lock1' />
+                                <Icon style = {[styles.text_light_red, styles.textSize_22]} type="AntDesign" name='lock1' />
                             </View>
                         </View>
 

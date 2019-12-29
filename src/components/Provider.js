@@ -33,7 +33,7 @@ class Provider extends Component {
 
     onSubCategories ( id ){
         this.setState({spinner: true, active : id });
-        this.props.providerProduct( this.props.lang , this.props.navigation.state.params.id ,id);
+        this.props.providerProduct( this.props.lang , this.props.navigation.state.params.id, this.props.user.token ,id);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -97,7 +97,7 @@ class Provider extends Component {
                                                     disabled        = {true}
                                                     maxStars        = {5}
                                                     rating          = {provider_info.rates}
-                                                    fullStarColor   = {COLORS.orange}
+                                                    fullStarColor   = {COLORS.blue}
                                                     starSize        = {13}
                                                     starStyle       = {styles.starStyle}
                                                 />
