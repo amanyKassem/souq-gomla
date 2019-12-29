@@ -90,7 +90,7 @@ class Home extends Component {
                                 styles.position_A ,
                                 styles.left_0 ,
                                 styles.top_20 ,
-                                styles.overlay_black ,
+                                styles.overlay_transBlue ,
                                 styles.paddingHorizontal_5 ,
                                 styles.paddingVertical_5 ,
                                 styles.width_120,
@@ -289,11 +289,11 @@ class Home extends Component {
                                                                 <Text style={[styles.textRegular, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
                                                                     {slid.description}
                                                                 </Text>
-                                                                <TouchableOpacity key={i} onPress={() => Linking.openURL(slid.link)}>
-                                                                    <Text style={[styles.textRegular, styles.text_red, styles.Width_100 ,styles.textSize_12, styles.textLeft, styles.textDecoration]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
+                                                                <View key={i} >
+                                                                    <Text style={[styles.textRegular, styles.text_blue, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
                                                                         { i18n.t('here') }
                                                                     </Text>
-                                                                </TouchableOpacity>
+                                                                </View>
                                                             </View>
                                                         </Animatable.View>
                                                     </View>
@@ -369,7 +369,7 @@ class Home extends Component {
                                                     <View style={{flexDirection:'column' , justifyContent:'center' , alignItems:'center', alignSelf : 'center'}}>
                                                         <TouchableOpacity
                                                             onPress         = {() => this.onSubCategories(pro.id)}
-                                                            style           = {[ styles.paddingHorizontal_5 , styles.paddingVertical_5 , this.state.active === pro.id ? styles.activeTabs : styles.noActiveTabs]}>
+                                                            style           = {[this.state.active === pro.id ? styles.activeTabs : styles.noActiveTabs]}>
                                                             <Image source   = {{ uri : pro.image }} style={[styles.scrollImg, styles.Radius_5]} resizeMode={'cover'} />
                                                         </TouchableOpacity>
                                                         <Text style={[styles.textRegular, styles.textSize_11 , { color : this.state.active === pro.id ? COLORS.black : 'transparent' }]} >

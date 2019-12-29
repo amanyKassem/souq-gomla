@@ -288,6 +288,9 @@ const styles = ({
     overlay_black : {
         backgroundColor     : "rgba(0, 0, 0, 0.5)"
     },
+    overlay_transBlue : {
+        backgroundColor     : COLORS.transBlue
+    },
     overlay_red : {
         backgroundColor     : COLORS.transRed
     },

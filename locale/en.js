@@ -163,6 +163,7 @@ const en = {
     'canceled': 'canceled',
     'confirmation': 'confirmation of approval',
     'confirmationText': 'Approval has been confirmed and notification will be sent to the customer of approval and execution of the order',
+    'confirmationPayment'       : 'Payment has been confirmed and communicated with you while any problem arises',
     'notInvalidCode': 'The code is invalid',
 
 };

@@ -42,7 +42,7 @@ class ConfirmPayment extends Component {
 
                 <Header style={styles.headerView}>
                     <Left style={styles.leftIcon}>
-                        <Button style={styles.Button} transparent onPress={() => this.props.navigation.goBack()}>
+                        <Button style={styles.Button} transparent onPress={() => this.props.navigation.navigate('MyOrders')}>
                             <Icon style={[styles.text_black, styles.textSize_22]} type="AntDesign" name='right' />
                         </Button>
                     </Left>
@@ -67,7 +67,7 @@ class ConfirmPayment extends Component {
 
                             <View style={[styles.overHidden, styles.flexCenter, styles.marginVertical_25, styles.Width_80]}>
                                 <Text style={[styles.textRegular , styles.textSize_18, styles.text_black, styles.textCenter]}>
-                                    تم تآكيد الدفع عبر الفيزا وسيتم التواصل معكم في حين ظهور آي مشكله
+                                    { i18n.t('confirmationPayment') }
                                 </Text>
                             </View>
 
