@@ -77,7 +77,7 @@ class AddProduct extends Component {
     };
 
     async componentDidMount() {
-
+        base64 = [];
         await Permissions.askAsync(Permissions.CAMERA);
         await Permissions.askAsync(Permissions.CAMERA_ROLL);
 
@@ -196,6 +196,7 @@ class AddProduct extends Component {
 
 
     componentWillMount() {
+		base64 = [];
 
         this.props.subCate( this.props.lang, this.props.user.token);
 
@@ -215,6 +216,7 @@ class AddProduct extends Component {
     }
 
     onFocus(){
+		base64 = [];
         this.componentWillMount();
     }
 
@@ -227,10 +229,7 @@ class AddProduct extends Component {
 
         return (
             <Container>
-
-                <Spinner
-                    visible           = { this.state.spinner }
-                />
+                <Spinner visible = { this.state.spinner } />
                 <NavigationEvents onWillFocus={() => this.onFocus()} />
 
                 <Header style={styles.headerView}>

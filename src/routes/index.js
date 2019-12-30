@@ -43,6 +43,7 @@ import OrderDetails             from "../components/OrderDetails";
 import EditProfile              from "../components/EditProfile";
 import DelegateOrderDetails     from "../components/DelegateOrderDetails";
 import Confirmation             from "../components/Confirmation";
+import UpdateProduct from "../components/UpdateProduct";
 
 
 const drawerCust = (props) => (<DrawerCustomization {...props} />);
@@ -179,6 +180,12 @@ const appStack =  createStackNavigator({
     },
     MapLocation : {
         screen: MapLocation,
+        navigationOptions: {
+            header: null
+        }
+    },
+    updateProduct: {
+        screen: UpdateProduct,
         navigationOptions: {
             header: null
         }
