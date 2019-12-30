@@ -35,7 +35,7 @@
     },
     "android": {
       "package": "app.aait.souqgomla",
-      "versionCode": 1,
+      "versionCode": 2,
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyBQu-aDY--uY14s4U3ok-XwwqhsnhLFe5Q"

@@ -156,7 +156,7 @@ class Product extends Component {
 	}
 
 	editProdect() {
-		this.props.navigation.navigate('updateProduct', {data: this.props.products});
+		this.props.navigation.navigate('updateProduct', {data: this.props.products , product_id: this.props.navigation.state.params.id});
 	}
 
 	addComment(id) {
