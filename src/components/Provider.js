@@ -81,8 +81,8 @@ class Provider extends Component {
                     </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                         {
                             provider_info?
                                 <View style={[styles.viewBlock, styles.bg_White , styles.borderGray, styles.Width_90]}>
@@ -157,8 +157,8 @@ class Provider extends Component {
                             }
                         </View>
 
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
             </Container>
 
         );

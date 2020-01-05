@@ -110,8 +110,8 @@ class NewPassword extends Component {
 
             <Container>
                 <NavigationEvents onWillFocus={() => this.onFocus()} />
+                <ImageBackground source={require('../../assets/images/background.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth}>
-                    <ImageBackground source={require('../../assets/images/background.png')} style={[styles.bgFullWidth]}>
                         <View style={[styles.position_R, styles.bgFullWidth, styles.marginVertical_15, styles.SelfCenter, styles.Width_100]}>
                             <Animatable.View animation="fadeInDown" easing="ease-out" delay={500} style={[styles.flexCenter]}>
                                 <View style={[styles.overHidden, styles.marginVertical_15]}>
@@ -186,8 +186,8 @@ class NewPassword extends Component {
                             </Form>
                             </KeyboardAvoidingView>
                         </View>
-                    </ImageBackground>
                 </Content>
+                    </ImageBackground>
             </Container>
         );
     }

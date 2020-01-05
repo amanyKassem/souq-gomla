@@ -45,9 +45,9 @@ class DrawerCustomization extends Component {
 
         return (
             <Container>
+                <View style={[styles.bg_light_oran, styles.width_40, styles.heightFull, styles.position_A, styles.bg_before, styles.zIndexDown]}/>
                 <Content contentContainerStyle={styles.bgFullWidth}>
 
-                    <View style={[styles.bg_light_oran, styles.width_40, styles.heightFull, styles.position_A, styles.bg_before, styles.zIndexDown]}/>
 
                     <Image style={[styles.imageMask]} source={require('../../assets/images/MaskGro.png')}/>
 

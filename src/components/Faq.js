@@ -54,8 +54,8 @@ class Faq extends Component {
                         </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                         <View style={[styles.position_R, styles.bgFullWidth, styles.Width_90, styles.marginVertical_15, styles.SelfCenter]}>
                             <View style={[styles.lightOverlay, styles.Border]}></View>
                             <View style={[styles.position_R, styles.Width_100, styles.overHidden, styles.bg_White, styles.Border,styles.bgFullWidth,]}>
@@ -83,8 +83,8 @@ class Faq extends Component {
                                 </View>
                             </View>
                         </View>
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
             </Container>
 
         );

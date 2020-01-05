@@ -245,8 +245,8 @@ class AddProduct extends Component {
                         </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
                         <View style={[styles.rowGroup, styles.marginVertical_10]}>
                             <View style={[styles.position_R, styles.flex_45,]}>
@@ -375,8 +375,8 @@ class AddProduct extends Component {
                             }
 
                         </KeyboardAvoidingView>
-                    </ImageBackground>
                 </Content>
+                    </ImageBackground>
             </Container>
 
         );

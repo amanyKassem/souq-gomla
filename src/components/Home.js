@@ -233,8 +233,8 @@ class Home extends Component {
                                 </Right>
                         }
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content  contentContainerStyle={styles.bgFullWidth} style={styles.bgFullWidth}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                         {
                             this.props.user == null || this.props.user.type !== 'delegate' ?
                                 <Animatable.View animation="fadeInLeft" easing="ease-out" delay={500}>
@@ -451,8 +451,8 @@ class Home extends Component {
                                 <View/>
                         }
 
-                    </ImageBackground>
                 </Content>
+                    </ImageBackground>
                 {
                     this.props.user != null && this.props.user.type === 'provider' ?
                         <TouchableOpacity

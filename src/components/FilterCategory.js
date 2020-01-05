@@ -257,8 +257,8 @@ class FilterCategory extends Component {
                         </Button>
                     </Right>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.bgFullWidth}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
                         <View style={[styles.position_R, styles.Width_60, styles.SelfRight]}>
                             <Item floatingLabel style={styles.item}>
@@ -482,8 +482,8 @@ class FilterCategory extends Component {
                             </View>
                         </Modal>
 
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
             </Container>
 
         );
