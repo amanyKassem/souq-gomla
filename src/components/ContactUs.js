@@ -99,8 +99,8 @@ class ContactUs extends Component {
                         </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                         <TouchableOpacity style={[styles.borderRed, styles.marginVertical_15, styles.Width_80, styles.SelfCenter, styles.height_50, styles.paddingHorizontal_25]}>
                             <View style={[styles.bg_light_oran, styles.iconImg, styles.iconContact, styles.flexCenter]}>
                                 <Icon style={[styles.text_blue, styles.textSize_22]} type="Feather" name='user' />
@@ -190,8 +190,8 @@ class ContactUs extends Component {
                                 </View>
                             </View>
                         </Modal>
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
             </Container>
 
         );

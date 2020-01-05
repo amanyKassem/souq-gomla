@@ -132,8 +132,8 @@ class MyOrders extends Component {
 					</Title>
 					</Body>
 				</Header>
+				<ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 				<Content contentContainerStyle={styles.bgFullWidth} style={styles.bgFullWidth}>
-					<ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
 						<NavigationEvents onWillFocus={() => this.onFocus()}/>
 
@@ -232,8 +232,8 @@ class MyOrders extends Component {
 
 						}
 
-					</ImageBackground>
 				</Content>
+				</ImageBackground>
 			</Container>
 
 		);

@@ -160,8 +160,8 @@ class FormPayment extends Component {
                     </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.bgFullWidth}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
                         <View style={[styles.overHidden]}>
                             <Animatable.View animation="fadeInUp" easing="ease-out" delay={500}
@@ -258,8 +258,8 @@ class FormPayment extends Component {
                             </Form>
                         </KeyboardAvoidingView>
 
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
             </Container>
 
         );

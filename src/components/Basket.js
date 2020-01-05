@@ -120,8 +120,8 @@ class Basket extends Component {
                         </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.bgFullWidth}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                         {
                             this.state.loader ?
                                 this._renderRows(this.loadingAnimated, 5, '5rows')
@@ -169,8 +169,8 @@ class Basket extends Component {
 								</View>
                         }
 
-                    </ImageBackground>
                 </Content>
+                    </ImageBackground>
             </Container>
 
         );

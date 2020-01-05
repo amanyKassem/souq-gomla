@@ -165,8 +165,8 @@ class Profile extends Component {
                         </Button>
                     </Right>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
                         <View style={[styles.position_R, styles.Width_90, styles.marginVertical_15, styles.marginHorizontal_10, styles.SelfCenter,{right:20}]}>
                             <View style={[styles.blueOverlay, styles.Border , {top:10 , left:10}]}/>
@@ -269,8 +269,8 @@ class Profile extends Component {
                             </Text>
                         </TouchableOpacity>
 
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
 
                 <Modal style={{}} isVisible={this.state.isModalInfo} onBackdropPress={() => this.toggleModalInfo()}>
                     <View style={[styles.commentModal,{padding:15}]}>

@@ -114,9 +114,9 @@ class DetailsBasket extends Component {
                         </Title>
                     </Body>
                 </Header>
+                <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
                 <Content contentContainerStyle={styles.bgFullWidth} style={styles.bgFullWidth}>
                     {this.renderLoader()}
-                    <ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 
                         {
                             this.props.cartProducts ?
@@ -175,8 +175,8 @@ class DetailsBasket extends Component {
                                 </View> :
                                 <View/>
                         }
-                    </ImageBackground>
                 </Content>
+                </ImageBackground>
             </Container>
 
         );

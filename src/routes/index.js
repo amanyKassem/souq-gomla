@@ -24,7 +24,6 @@ import ChoosePayment            from "../components/ChoosePayment";
 import FormPayment              from "../components/FormPayment";
 import ConfirmPayment           from "../components/ConfirmPayment";
 import MyOrders                 from "../components/MyOrders";
-import Notification             from "../components/Notification";
 import Offers                   from "../components/Offers";
 import Favorite                 from "../components/Favorite";
 import OpenCamera               from "../components/OpenCamera";
@@ -136,12 +135,6 @@ const appStack =  createStackNavigator({
             header: null
         }
     },
-    Notification : {
-        screen: Notification,
-        navigationOptions: {
-            header: null
-        }
-    },
     ConfirmPayment : {
         screen: ConfirmPayment,
         navigationOptions: {
@@ -243,6 +236,18 @@ const appStack =  createStackNavigator({
             header: null
         }
     },
+    faq: {
+        screen: Faq,
+        navigationOptions: {
+            header: null
+        }
+    },
+    aboutApp: {
+        screen: AboutApp,
+        navigationOptions: {
+            header: null
+        }
+    },
 
 });
 
@@ -283,18 +288,7 @@ const authStack = createStackNavigator({
                 header: null
             }
         },
-        faq: {
-            screen: Faq,
-            navigationOptions: {
-                header: null
-            }
-        },
-        aboutApp: {
-            screen: AboutApp,
-            navigationOptions: {
-                header: null
-            }
-        },
+
         MapLocation : {
             screen: MapLocation,
             navigationOptions: {

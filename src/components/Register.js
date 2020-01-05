@@ -296,11 +296,11 @@ class Register extends Component {
                     visible={this.state.spinner}
                 />
 
+                <ImageBackground source={require('../../assets/images/background.png')}
+                                 style={[styles.bgFullWidth]}>
                 <NavigationEvents onWillFocus={() => this.onFocus()}/>
 
                 <Content contentContainerStyle={styles.bgFullWidth}>
-                    <ImageBackground source={require('../../assets/images/background.png')}
-                                     style={[styles.bgFullWidth]}>
                         <View
                             style={[styles.position_R, styles.bgFullWidth, styles.marginVertical_15, styles.SelfCenter, styles.Width_100]}>
                             <Animatable.View animation="fadeInDown" easing="ease-out" delay={500}
@@ -645,8 +645,8 @@ class Register extends Component {
                             </View>
 
                         </View>
-                    </ImageBackground>
                 </Content>
+                    </ImageBackground>
             </Container>
         );
     }

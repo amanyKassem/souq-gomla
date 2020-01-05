@@ -252,8 +252,8 @@ class Product extends Component {
 						</Button>
 					</Right>
 				</Header>
+				<ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 				<Content contentContainerStyle={styles.bgFullWidth} style={styles.contentView}>
-					<ImageBackground source={require('../../assets/images/bg_img.png')} style={[styles.bgFullWidth]}>
 						{
 							this.props.products ?
 								<View>
@@ -460,8 +460,8 @@ class Product extends Component {
 								<View/>
 						}
 
-					</ImageBackground>
 				</Content>
+				</ImageBackground>
 
 				<Animated.View style={[styles.subView, styles.Width_90, {transform: [{translateY: this.state.bounceValue}]}, { alignSelf : 'center', }]}>
 					<View style={[styles.lightOverlay, styles.Border]}/>
