@@ -29,7 +29,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
-
+	  console.disableYellowBox = true;
     if (Platform.OS === 'android') {
       Notifications.createChannelAndroidAsync('orders', {
         name: 'Chat messages',
