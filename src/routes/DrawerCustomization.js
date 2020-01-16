@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {View, Text, Image, TouchableOpacity, I18nManager} from "react-native";
-import {Button, Container, Content, Icon} from 'native-base';
+import {Container, Content, Icon} from 'native-base';
 import { DrawerItems } from 'react-navigation-drawer';
 
 import styles from "../../assets/style";
@@ -8,7 +8,6 @@ import COLORS from '../../src/consts/colors'
 import i18n from "../../locale/i18n";
 import {connect} from "react-redux";
 import {logout, tempAuth, chooseLang} from "../actions";
-import * as Animatable from "react-native-animatable";
 
 class DrawerCustomization extends Component {
     constructor(props){

@@ -45,7 +45,7 @@ class Profile extends Component {
     }
 
     renderSubmit(){
-        if (this.state.password == '' || this.state.newPassword == '' || this.state.confirmNewPassword == '') {
+        if (this.state.password === '' || this.state.newPassword === '' || this.state.confirmNewPassword === '') {
             return (
                 <View style={[styles.Width_100,{marginBottom:20}]}>
                     <TouchableOpacity style={[styles.cartBtn , styles.SelfCenter , {backgroundColor:'#999'}]}>
@@ -84,12 +84,15 @@ class Profile extends Component {
             return false
         }
 
-        this.setState({ isSubmitted: true, });
-        this.props.getChangePassword( this.props.lang ,
+        // this.setState({ isSubmitted: true, });
+
+        this.props.getChangePassword(
+            this.props.lang ,
             this.state.password,
             this.state.newPassword,
             this.props.user.token
         )
+
     }
 
     componentWillReceiveProps(nextProps) {

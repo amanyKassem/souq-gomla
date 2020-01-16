@@ -52,7 +52,7 @@ class SearchHome extends Component {
     }
 
     onFocus(){
-        this.componentDidMount();
+        this.componentWillMount();
     }
 
     render() {

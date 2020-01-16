@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {DoubleBounce} from "react-native-loader";
 import { getFaq } from '../actions'
 import * as Animatable from 'react-native-animatable';
+import {NavigationEvents} from "react-navigation";
 
 class Faq extends Component {
     constructor(props){
@@ -19,6 +20,10 @@ class Faq extends Component {
 
     componentWillMount() {
         this.props.getFaq( this.props.lang )
+    }
+
+    onFocus(){
+        this.componentWillMount();
     }
 
     renderLoader(){
@@ -42,6 +47,7 @@ class Faq extends Component {
         return (
             <Container>
                 { this.renderLoader() }
+                <NavigationEvents onWillFocus={() => this.onFocus()} />
                 <Header style={styles.headerView}>
                     <Left style={styles.leftIcon}>
                         <Button style={styles.Button} transparent onPress={() => this.props.navigation.goBack()}>

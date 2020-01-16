@@ -8,6 +8,7 @@ import {DoubleBounce} from "react-native-loader";
 import { getContactUs, complaint } from '../actions';
 import  Modal  from "react-native-modal";
 import * as Animatable from 'react-native-animatable';
+import {NavigationEvents} from "react-navigation";
 
 class ContactUs extends Component {
     constructor(props){
@@ -15,12 +16,17 @@ class ContactUs extends Component {
         this.state={
             show_modal          : false,
             message             : '',
+            error               : ''
         }
     }
 
 
     componentWillMount() {
         this.props.getContactUs( this.props.lang );
+    }
+
+    onFocus(){
+        this.componentWillMount();
     }
 
     renderLoader(){
@@ -40,6 +46,7 @@ class ContactUs extends Component {
         if (this.state.message.length <= 0 ) {
             isError     = true;
             msg         = i18n.t('context');
+            this.setState({ error : i18n.t('context') })
         }
 
         if (msg !== ''){
@@ -63,7 +70,7 @@ class ContactUs extends Component {
         if (!err){
 
             const { message } = this.state;
-            const data = {message};
+            const data = {message, lang: this.props.lang};
 
             this.props.complaint(data, this.props);
 
@@ -87,6 +94,7 @@ class ContactUs extends Component {
         return (
             <Container>
                 { this.renderLoader() }
+                <NavigationEvents onWillFocus={() => this.onFocus()} />
                 <Header style={styles.headerView}>
                     <Left style={styles.leftIcon}>
                         <Button style={styles.Button} transparent onPress={() => this.props.navigation.goBack()}>
@@ -176,6 +184,9 @@ class ContactUs extends Component {
                                                             onChangeText                    = {(message) => this.setState({message})}
                                                         />
                                                     </Item>
+                                                    <Text style = {[styles.textRegular, styles.textCenter, styles.textSize_14 , styles.text_red]}>
+                                                        { this.state.error }
+                                                    </Text>
                                                 </Form>
                                             </View>
                                             <TouchableOpacity style={[styles.overHidden, styles.paddingVertical_5 , styles.bg_blue, styles.Width_50, styles.flexCenter, styles.Radius_5]} onPress={() => this.onSent()}>

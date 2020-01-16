@@ -251,6 +251,7 @@ class EditProfile extends Component {
                                             onBlur                  = {() => this.unActiveInput('phone')}
                                             onFocus                 = {() => this.activeInput('phone')}
                                             value                   = {this.state.phone}
+                                            keyboardType            = {'number-pad'}
                                         />
                                     </Item>
                                     <View style = {[ styles.position_A , styles.bg_light_oran, styles.flexCenter, styles.iconInput,  (this.state.phoneStatus === 1 ? styles.left_0 : styles.leftHidLeft )]}>

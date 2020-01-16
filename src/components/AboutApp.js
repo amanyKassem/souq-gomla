@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {DoubleBounce} from "react-native-loader";
 import { getAboutApp } from '../actions'
 import * as Animatable from 'react-native-animatable';
+import {NavigationEvents} from "react-navigation";
 
 class AboutApp extends Component {
     constructor(props){
@@ -32,6 +33,10 @@ class AboutApp extends Component {
         }
     }
 
+    onFocus(){
+        this.componentWillMount();
+    }
+
     static navigationOptions = () => ({
         header      : null,
         drawerLabel : ( <Text style={[styles.textRegular, styles.text_black, styles.textSize_18]}>{ i18n.t('about') }</Text> ) ,
@@ -43,6 +48,7 @@ class AboutApp extends Component {
         return (
             <Container>
                 { this.renderLoader() }
+                <NavigationEvents onWillFocus={() => this.onFocus()} />
                 <Header style={styles.headerView}>
                     <Left style={styles.leftIcon}>
                         <Button style={styles.Button} transparent onPress={() => this.props.navigation.goBack()}>
