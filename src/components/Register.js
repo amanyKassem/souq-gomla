@@ -57,6 +57,7 @@ class Register extends Component {
             this.state.city_name = this.props.navigation.getParam('city_name');
             this.setState({latitude: this.props.navigation.getParam('latitude')});
             this.setState({longitude: this.props.navigation.getParam('longitude')});
+            console.log('map site ===', this.state.city_name)
         } else {
             let {status} = await Permissions.askAsync(Permissions.LOCATION);
             if (status !== 'granted') {
@@ -484,8 +485,8 @@ class Register extends Component {
                                     <TouchableOpacity
                                         style={[styles.borderBold, styles.marginVertical_15, styles.Width_100, styles.height_50, styles.rowGroup, styles.paddingHorizontal_10]}
                                         onPress={() => this.props.navigation.navigate('MapLocation', {pageName: this.props.navigation.state.routeName})}>
-                                        <Text style={[styles.textRegular, styles.text_black, styles.width_150]}
-                                              numberOfLines={1} prop with ellipsizeMode="head">
+                                        <Text style={[styles.textRegular, styles.text_black, styles.width_200]}
+                                              numberOfLines={1} prop with ellipsizeMode="tail">
                                             {this.state.city_name}
                                         </Text>
                                         <View style={[styles.overHidden]}>
@@ -501,8 +502,8 @@ class Register extends Component {
                                                 style={[styles.borderBold, styles.marginVertical_15, styles.Width_100, styles.height_50, styles.rowGroup, styles.paddingHorizontal_10]}
                                                 onPress={() => this._pickImage('ID')}>
                                                 <Text
-                                                    style={[styles.textRegular, styles.text_black, styles.width_150]}
-                                                    numberOfLines={1} prop with ellipsizeMode="head">
+                                                    style={[styles.textRegular, styles.text_black, styles.width_200]}
+                                                    numberOfLines={1} prop with ellipsizeMode="tail">
                                                     {this.state.PhotoID}
                                                 </Text>
                                                 <View style={[styles.overHidden]}>
@@ -523,8 +524,8 @@ class Register extends Component {
                                                 style={[styles.borderBold, styles.marginVertical_15, styles.Width_100, styles.height_50, styles.rowGroup, styles.paddingHorizontal_10]}
                                                 onPress={() => this._pickImage('Car')}>
                                                 <Text
-                                                    style={[styles.textRegular, styles.text_black, styles.width_150]}
-                                                    numberOfLines={1} prop with ellipsizeMode="head">
+                                                    style={[styles.textRegular, styles.text_black, styles.width_200]}
+                                                    numberOfLines={1} prop with ellipsizeMode="tail">
                                                     {this.state.PhotoCar}
                                                 </Text>
                                                 <View style={[styles.overHidden]}>
@@ -545,8 +546,8 @@ class Register extends Component {
                                                 style={[styles.borderBold, styles.marginVertical_15, styles.Width_100, styles.height_50, styles.rowGroup, styles.paddingHorizontal_10]}
                                                 onPress={() => this._pickImage('License')}>
                                                 <Text
-                                                    style={[styles.textRegular, styles.text_black, styles.width_150]}
-                                                    numberOfLines={1} prop with ellipsizeMode="head">
+                                                    style={[styles.textRegular, styles.text_black, styles.width_200]}
+                                                    numberOfLines={1} prop with ellipsizeMode="tail">
                                                     {this.state.PhotoLicense}
                                                 </Text>
                                                 <View style={[styles.overHidden]}>
@@ -585,7 +586,7 @@ class Register extends Component {
                                         <Item floatingLabel
                                               style={[styles.item, styles.position_R, styles.overHidden]}>
                                             <Input
-                                                placeholder={i18n.t('password')}
+                                                placeholder={i18n.t('confirmPassword')}
                                                 style={[styles.input, styles.height_50, (this.state.rePasswordStatus === 1 ? styles.Active : styles.noActive)]}
                                                 onChangeText={(confirmpassword) => this.setState({confirmpassword})}
                                                 onBlur={() => this.unActiveInput('rePasswordStatus')}

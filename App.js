@@ -80,7 +80,7 @@ export default class App extends React.Component {
     }
 
     const deviceId = await Notifications.getExpoPushTokenAsync();
-    console.log('deviceIddeviceId' , deviceId)
+    console.log('deviceIddeviceId' , deviceId);
 
     AsyncStorage.setItem('deviceID', deviceId);
 

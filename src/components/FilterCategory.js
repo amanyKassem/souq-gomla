@@ -1,5 +1,16 @@
 import React, {Component} from "react";
-import {View, Text, Image, TouchableOpacity, ImageBackground, Platform, FlatList, Animated , Dimensions} from "react-native";
+import {
+    View,
+    Text,
+    Image,
+    TouchableOpacity,
+    ImageBackground,
+    Platform,
+    FlatList,
+    Animated,
+    Dimensions,
+    I18nManager
+} from "react-native";
 import {
     Container,
     Content,
@@ -105,9 +116,10 @@ class FilterCategory extends Component {
     onFilter() {
         const {country, rating} = this.state;
         const data = {
-            lang: this.props.lang,
-            city_id: country,
-            rate: rating,
+            lang        : this.props.lang,
+            city_id     : country,
+            rate        : rating,
+            category_id : this.props.navigation.state.params.id
         };
 
         this.props.filterProviders(data);
@@ -156,7 +168,9 @@ class FilterCategory extends Component {
                             </View>
                             <View style={[styles.overHidden, styles.rowRight]}>
                                 <Icon style={[styles.text_gray, styles.textSize_14]} type="Feather" name='map-pin'/>
-                                <Text style={[styles.textRegular, styles.text_gray, styles.marginHorizontal_5]}>
+                                <Text style={[styles.textRegular, styles.text_gray, styles.marginHorizontal_5, styles.flex, {textAlign : I18nManager.isRTL ? 'left' : 'right'}]}
+                                      numberOfLines   = { 1 } prop with
+                                      ellipsizeMode   = "tail">
                                     {item.address}
                                 </Text>
                             </View>
@@ -214,6 +228,7 @@ class FilterCategory extends Component {
                     width={width - 20}
                     height={100}
                     colorShimmer={['#ffffff75', COLORS.light_blue, '#ffffff75']}
+                    duration = {1600}
                 />
             )
         }

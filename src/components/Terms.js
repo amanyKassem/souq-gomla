@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {DoubleBounce} from "react-native-loader";
 import { getTerms } from '../actions'
 import * as Animatable from 'react-native-animatable';
+import {NavigationEvents} from "react-navigation";
 
 class Terms extends Component {
     constructor(props){
@@ -20,6 +21,10 @@ class Terms extends Component {
 
     componentWillMount() {
         this.props.getTerms( this.props.lang )
+    }
+
+    onFocus(){
+        this.componentWillMount();
     }
 
     renderLoader(){
@@ -43,6 +48,7 @@ class Terms extends Component {
         return (
             <Container>
                 { this.renderLoader() }
+                <NavigationEvents onWillFocus={() => this.onFocus()} />
                 <Header style={styles.headerView}>
                     <Left style={styles.leftIcon}>
                         <Button style={styles.Button} transparent onPress={() => this.props.navigation.goBack()}>

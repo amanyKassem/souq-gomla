@@ -363,8 +363,8 @@ class Product extends Component {
 											<View style={[styles.overHidden]}>
 												<View style={[styles.rowGroup]}>
 													<Text
-														style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft,]}
-														numberOfLines={1} prop with ellipsizeMode="head">
+														style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.textLeft,styles.width_150]}
+														numberOfLines={1} prop with ellipsizeMode="tail">
 														{this.props.products.name}
 													</Text>
 													<View style={{width: 70}}>
@@ -379,19 +379,19 @@ class Product extends Component {
 													</View>
 												</View>
 												<Text
-													style={[styles.textRegular, styles.text_bold_gray, styles.Width_100, styles.textSize_12, styles.textLeft]}
-													numberOfLines={1} prop with ellipsizeMode="head">
+													style={[styles.textRegular, styles.text_bold_gray, styles.Width_100, styles.textSize_12, styles.textLeft, styles.width_150]}
+													numberOfLines={1} prop with ellipsizeMode="tail">
 													{this.props.products.category} - {this.props.products.sub_category}
 												</Text>
 												<View style={[styles.directionRow]}>
 													<View style={[styles.Width_93]}>
 														<Text
-															style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.writing , {alignSelf:'flex-start'}]}
-															numberOfLines={1} prop with ellipsizeMode="head">
+															style={[styles.textRegular, styles.text_black, styles.textSize_14, styles.writing , styles.width_150, {alignSelf:'flex-start'}]}
+															numberOfLines={1} prop with ellipsizeMode="tail">
 															{i18n.t('productSpec')}
 														</Text>
 														<Text
-															style={[styles.textRegular, styles.text_bold_gray, styles.textSize_12 , styles.writing , {alignSelf:'flex-start'}]}>
+															style={[styles.textRegular, styles.text_bold_gray, styles.textSize_12 , styles.writing , styles.width_150, {alignSelf:'flex-start'}]}>
 															{this.props.products.description}
 														</Text>
 													</View>

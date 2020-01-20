@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {NavigationEvents} from "react-navigation";
 import Swiper from 'react-native-swiper';
 import * as Animatable from 'react-native-animatable';
-import {sliderHome, categoryHome, searchHome, homeProvider , homeDelegate} from '../actions';
+import {sliderHome, categoryHome, searchHome, homeProvider , homeDelegate, profile} from '../actions';
 import i18n from "../../locale/i18n";
 import StarRating from "react-native-star-rating";
 import COLORS from "../consts/colors";
@@ -34,7 +34,9 @@ class Home extends Component {
 
     componentWillMount() {
 
-        if (this.props.auth === null || this.props.auth.data.type === 'user') {
+        if ( this.props.auth === null || this.props.auth.key === 0 ) {
+            this.props.navigation.navigate('Login');
+        } else if (this.props.auth.data.type === 'user') {
             this.props.sliderHome(this.props.lang);
             this.props.categoryHome(this.props.lang);
         } else if (this.props.auth.data.type === 'provider') {
@@ -43,7 +45,9 @@ class Home extends Component {
             this.props.homeDelegate(this.props.lang, this.state.status, this.props.auth.data.token);
         }
 
-
+        if(this.props.auth !== null){
+            this.props.profile(this.props.auth.data.token);
+        }
         this.setState({ spinner: false });
 
     }
@@ -77,34 +81,32 @@ class Home extends Component {
             <TouchableOpacity
                 onPress     = {() => this.props.navigation.navigate('FilterCategory', { id : item.item.id , name : item.item.name  })}
                 key         = { item.index }
-                style       = {[styles.position_R, styles.Width_45, item.index%2 == 0 ? styles.height_150 : styles.height_250, { alignSelf: 'flex-start', top: item.index >= 2 && item.index%2 === 0 ? (item.index/2) * -105 : 0 , marginBottom: 15, width: '46.7%', marginHorizontal: 6 }]}>
-                <View style={[styles.position_R, styles.Width_100, item.index%2 == 0 ? styles.height_150 : styles.height_250 , styles.Border, styles.overHidden]}>
-                    <Animatable.View animation="zoomIn" easing="ease-out" delay={500}>
-                        <View style={[styles.overHidden, styles.position_R]}>
-                            <Image style={[styles.Width_100 ,  item.index%2 == 0 ? styles.height_150 : styles.height_250]} source={{ uri: item.item.image }}/>
-                            <View style={[
-                                styles.textRegular ,
-                                styles.text_White ,
-                                styles.textSize_14 ,
-                                styles.textCenter ,
-                                styles.position_A ,
-                                styles.left_0 ,
-                                styles.top_20 ,
-                                styles.overlay_transBlue ,
-                                styles.paddingHorizontal_5 ,
-                                styles.paddingVertical_5 ,
-                                styles.width_120,
-                                styles.rowGroup,
-                                styles.paddingHorizontal_15
-                            ]}>
-                                <Image style={styles.ionImage} source={{ uri: item.item.icon }}/>
-                                <Text style={[styles.textRegular , styles.text_White , styles.textSize_14 , styles.textCenter ,]}>
-                                    { item.item.name }
-                                </Text>
-                            </View>
+                style       = {[styles.position_R, styles.Width_45, item.index%2 === 0 ? styles.height_150 : styles.height_250, { alignSelf: 'flex-start', top: item.index >= 2 && item.index%2 === 0 ? (item.index/2) * -105 : 0 , marginBottom: 15, width: '46.7%', marginHorizontal: 6 }]}>
+                <Animatable.View animation="zoomIn" easing="ease-out" delay={500}>
+                    <View style={[styles.overHidden, styles.position_R]}>
+                        <Image style={[styles.Width_100 ,  item.index%2 === 0 ? styles.height_150 : styles.height_250]} source={{ uri: item.item.image }}/>
+                        <View style={[
+                            styles.textRegular ,
+                            styles.text_White ,
+                            styles.textSize_14 ,
+                            styles.textCenter ,
+                            styles.position_A ,
+                            styles.left_0 ,
+                            styles.top_20 ,
+                            styles.overlay_transBlue ,
+                            styles.paddingHorizontal_5 ,
+                            styles.paddingVertical_5 ,
+                            styles.width_120,
+                            styles.rowGroup,
+                            styles.paddingHorizontal_15
+                        ]}>
+                            <Image style={styles.ionImage} source={{ uri: item.item.icon }}/>
+                            <Text style={[styles.textRegular , styles.text_White , styles.textSize_14 , styles.textCenter ,]}>
+                                { item.item.name }
+                            </Text>
                         </View>
-                    </Animatable.View>
-                </View>
+                    </View>
+                </Animatable.View>
             </TouchableOpacity>
         );
     };
@@ -196,6 +198,7 @@ class Home extends Component {
     };
 
     render() {
+
         const provider_info = this.props.provider;
 
         return (
@@ -251,8 +254,11 @@ class Home extends Component {
                                             style={[styles.position_A, styles.iconSearch, styles.width_50, styles.height_40, styles.flexCenter,]}
                                             onPress={() => this.onSearch()}
                                         >
-                                            <Icon style={[styles.text_gray, styles.textSize_20]} type="AntDesign"
-                                                  name='search1'/>
+                                            <Icon
+                                                style={[styles.text_gray, styles.textSize_20]}
+                                                type="AntDesign"
+                                                name='search1'
+                                            />
                                         </TouchableOpacity>
                                     </View>
                                 </Animatable.View>
@@ -283,14 +289,14 @@ class Home extends Component {
                                                         <Image style={[styles.Width_95, styles.swiper]} source={{ uri : slid.image}}/>
                                                         <Animatable.View animation="fadeInRight" easing="ease-out" delay={500} style={[styles.blockContent, styles.Width_50]}>
                                                             <View style={[styles.paddingVertical_10, styles.paddingHorizontal_10]}>
-                                                                <Text style={[styles.textRegular, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
+                                                                <Text style={[styles.textRegular, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "tail">
                                                                     {slid.name}
                                                                 </Text>
-                                                                <Text style={[styles.textRegular, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
+                                                                <Text style={[styles.textRegular, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "tail">
                                                                     {slid.description}
                                                                 </Text>
                                                                 <View key={i} >
-                                                                    <Text style={[styles.textRegular, styles.text_blue, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
+                                                                    <Text style={[styles.textRegular, styles.text_blue, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "tail">
                                                                         { i18n.t('here') }
                                                                     </Text>
                                                                 </View>
@@ -304,7 +310,6 @@ class Home extends Component {
 
                                     </View>
 
-                                    <View>
                                         <FlatList
                                             data                    = {this.props.categories}
                                             renderItem              = {(item) => this.renderItems(item)}
@@ -313,7 +318,6 @@ class Home extends Component {
                                             extraData               = {this.props.categories}
                                             onEndReachedThreshold   = {isIOS ? .01 : 1}
                                         />
-                                    </View>
 
                                 </View>
                                 :
@@ -323,7 +327,6 @@ class Home extends Component {
                         {
                             this.props.user != null && this.props.user.type === 'provider' && provider_info?
                                 <View style={[styles.homeProvider]}>
-                                    { console.log('ppppp', provider_info) }
 
                                     <View style={[styles.viewBlock, styles.bg_White , styles.borderGray, styles.Width_90, styles.position_R]}>
                                         <TouchableOpacity
@@ -335,7 +338,7 @@ class Home extends Component {
                                         <Image style={[styles.Width_100, styles.swiper]} source={{ uri : provider_info.avatar }} resizeMode={'cover'}/>
                                         <Animatable.View animation="fadeInRight" easing="ease-out" delay={500} style={[styles.blockContent]}>
                                             <View style={[styles.paddingVertical_10, styles.paddingHorizontal_10]}>
-                                                <Text style={[styles.textRegular, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
+                                                <Text style={[styles.textRegular, styles.text_White, styles.width_150 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "tail">
                                                     {provider_info.name}
                                                 </Text>
                                                 <View style={{width:70}}>
@@ -348,12 +351,14 @@ class Home extends Component {
                                                         starStyle       = {styles.starStyle}
                                                     />
                                                 </View>
-                                                <Text style={[styles.textBold, styles.text_White, styles.Width_100 ,styles.textSize_12, styles.textLeft]} numberOfLines = { 1 } prop with ellipsizeMode = "head">
+                                                <Text style={[styles.textBold, styles.text_White, styles.width_150 ,styles.textSize_12, styles.textLeft]}
+                                                      numberOfLines = { 1 } prop with ellipsizeMode = "tail">
                                                     {provider_info.details}
                                                 </Text>
                                                 <View style={[styles.locationView]}>
                                                     <Icon style={[styles.text_White , styles.textSize_12 ,{marginRight:5}]} type="Feather" name='map-pin' />
-                                                    <Text style={[styles.textRegular, styles.text_White,styles.textSize_12]}>
+                                                    <Text style={[styles.textRegular, styles.text_White,styles.textSize_12, styles.width_150]}
+                                                          numberOfLines = { 1 } prop with ellipsizeMode = "tail">
                                                         {provider_info.address}
                                                     </Text>
                                                 </View>
@@ -367,7 +372,7 @@ class Home extends Component {
                                             {
                                                 this.props.sub_categories.map((pro) => (
 
-                                                    <View style={{flexDirection:'column' , justifyContent:'center' , alignItems:'center', alignSelf : 'center'}}>
+                                                    <View style={{flexDirection:'column' , justifyContent:'center' , alignItems:'center', alignSelf : 'center', paddingHorizontal : 5}}>
                                                         <TouchableOpacity
                                                             onPress         = {() => this.onSubCategories(pro.id)}
                                                             style           = {[this.state.active === pro.id ? styles.activeTabs : styles.noActiveTabs]}>
@@ -485,4 +490,4 @@ const mapStateToProps = ({ lang, home, categoryHome, homeProvider, profile , hom
         orders              : homeDelegate.orders
     };
 };
-export default connect(mapStateToProps, { sliderHome, categoryHome, searchHome , homeProvider, homeDelegate })(Home);
+export default connect(mapStateToProps, { sliderHome, categoryHome, searchHome , homeProvider, homeDelegate, profile })(Home);

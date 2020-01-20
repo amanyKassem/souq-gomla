@@ -455,6 +455,9 @@ const styles = ({
     flex_100 : {
         flexBasis           : '100%'
     },
+    flex : {
+        flex                : 1
+    },
 
 
     //  Style For App
@@ -519,6 +522,9 @@ const styles = ({
     },
     width_150 : {
         width               : 150
+    },
+    width_200 : {
+        width               : 200
     },
     height_10 : {
         height               : 10
